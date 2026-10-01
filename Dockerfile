@@ -11,10 +11,14 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --include=dev --no-audit --no-fund
 
+# Sub-ruta opcional (p. ej. /map detrás de nginx). Se fija al compilar y también la lee `next start`.
+ARG NEXT_PUBLIC_BASE_PATH=""
+ENV NEXT_PUBLIC_BASE_PATH=$NEXT_PUBLIC_BASE_PATH
+
 COPY . .
 RUN npx prisma generate && npm run build
 
-RUN mkdir -p /app/data && chown -R pwuser:pwuser /app
+RUN chmod +x /app/docker/entrypoint.sh && mkdir -p /app/data && chown -R pwuser:pwuser /app
 USER pwuser
 
 EXPOSE 3000

@@ -5,6 +5,7 @@ import { Fragment, useMemo, useState } from 'react';
 import { EditableCell } from '@/components/editable-cell';
 import { IconAlert, IconChevron, IconDownload, IconSearch } from '@/components/icons';
 import { RefreshButton } from '@/components/refresh-button';
+import { withBasePath } from '@/lib/base-path';
 import { fmtDate, fmtDateTime, fmtNumber } from '@/lib/format';
 import { SCORE_BAND_CLASS, scoreBand } from '@/lib/score-band';
 import { SEMAPHORE_LABEL, SEMAPHORE_ORDER, type Semaphore } from '@/lib/semaphore';
@@ -64,14 +65,14 @@ export function Dashboard({ board }: { board: Board }) {
     <>
       <header className="bg-surface border-b border-line">
         <div className="mx-auto flex max-w-[1600px] flex-wrap items-center gap-x-5 gap-y-3 px-6 py-3">
-          <Image src="/inapa-logo.png" alt="INAPA – Instituto Nacional de Aguas Potables y Alcantarillados" width={500} height={110} priority className="h-14 w-auto" />
+          <Image src={withBasePath('/inapa-logo.png')} alt="INAPA – Instituto Nacional de Aguas Potables y Alcantarillados" width={500} height={110} priority className="h-14 w-auto" />
           <div className="hidden h-8 w-px bg-line sm:block" aria-hidden />
           <div className="min-w-0">
             <h1 className="text-xl leading-tight font-semibold">Seguimiento SISMAP</h1>
             <p className="text-sm text-ink-2">Indicadores del Ministerio de Administración Pública</p>
           </div>
           <div className="ml-auto flex items-center gap-2">
-            <a href="/api/export" className="btn btn-secondary" download>
+            <a href={withBasePath('/api/export')} className="btn btn-secondary" download>
               <IconDownload size={16} />
               Exportar a Excel
             </a>
@@ -404,7 +405,7 @@ function EvidenceRows({ i }: { i: BoardIndicator }) {
 function EmptyState() {
   return (
     <div className="flex flex-col items-center px-6 py-16 text-center">
-      <Image src="/favicon-192.png" alt="" width={56} height={56} className="opacity-90" />
+      <Image src={withBasePath('/favicon-192.png')} alt="" width={56} height={56} className="opacity-90" />
       <h2 className="mt-4 text-lg font-semibold">Todavía no hay datos de SISMAP</h2>
       <p className="mt-2 max-w-md text-sm text-ink-2">
         Pulse <strong className="text-ink">Actualizar datos</strong> arriba a la derecha. La aplicación iniciará sesión en SISMAP con la cuenta institucional, leerá las cuatro fuentes y mostrará aquí los indicadores con sus evidencias y vencimientos. Suele tardar menos de un minuto.

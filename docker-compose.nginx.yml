@@ -1,0 +1,21 @@
+# Variante para una VPS que YA tiene un proxy (nginx) ocupando los puertos 80/443.
+# No arranca Caddy; publica la app solo en localhost y, opcionalmente, bajo una sub-ruta.
+#
+# En .env:
+#   COMPOSE_FILE=docker-compose.yml:docker-compose.nginx.yml
+#   BASE_PATH=/map        # vacío si la app va en la raíz de su propio dominio
+#   APP_PORT=3001         # puerto local al que apunta nginx
+#   DOMAIN=ivd.inapa.gob.do   # no se usa sin Caddy, pero el compose base lo exige
+#
+# Con COMPOSE_FILE definido, los comandos habituales (docker compose up -d --build, logs, exec) funcionan igual.
+services:
+  app:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_BASE_PATH: ${BASE_PATH:-}
+    ports:
+      - "127.0.0.1:${APP_PORT:-3001}:3000"
+
+  caddy:
+    profiles: ["caddy"]

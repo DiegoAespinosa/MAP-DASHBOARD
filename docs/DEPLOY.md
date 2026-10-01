@@ -66,3 +66,31 @@ cd /opt/map-dashboard && git pull && docker compose up -d --build
 - **Una fuente en FAILED/ANOMALY**: el resto se actualiza igual y los datos anteriores de esa fuente se conservan; el mensaje aparece en la tarjeta de la fuente.
 - **Actualización "en curso" bloqueada**: tras 20 minutos sin actividad se marca como fallida automáticamente.
 - Logs: `docker compose logs -f app`.
+
+## 9. VPS que ya tiene nginx (sub-ruta, sin Caddy)
+Si los puertos 80/443 ya los usa nginx con otro sitio, no se arranca Caddy: la app se publica solo en `127.0.0.1` y nginx la sirve bajo una sub-ruta (p. ej. `/map`).
+
+En `.env`, además de las variables de la sección 2:
+```bash
+COMPOSE_FILE=docker-compose.yml:docker-compose.nginx.yml
+BASE_PATH=/map
+APP_PORT=3001
+DOMAIN=ivd.inapa.gob.do   # no se usa sin Caddy, pero el compose base lo exige
+```
+`docker compose up -d --build` arranca `postgres`, `app` y `backups`. La sub-ruta se fija al compilar: cambiar `BASE_PATH` exige `--build`.
+
+En el `server { }` del sitio existente de nginx:
+```nginx
+location ~ ^/map(/|$) {
+    proxy_pass http://127.0.0.1:3001;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    # La app no tiene inicio de sesión: restringir aquí (auth_basic o allow/deny).
+    # auth_basic "SISMAP INAPA";
+    # auth_basic_user_file /etc/nginx/.htpasswd-map;
+}
+```
+`ADMIN_ALLOWED_CIDRS` solo aplica con Caddy; en esta variante el control de acceso se hace en nginx.
