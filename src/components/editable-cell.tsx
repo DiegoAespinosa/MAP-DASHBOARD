@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { IconCheck, IconCopy, IconPencil, IconSpinner } from '@/components/icons';
+import { withBasePath } from '@/lib/base-path';
 
 interface Props {
   indicatorId: string;
@@ -47,7 +48,7 @@ export function EditableCell({ indicatorId, field, value, label, multiline, copy
     if (text === saved) return;
     setState('saving');
     try {
-      const res = await fetch(`/api/indicators/${indicatorId}/internal`, {
+      const res = await fetch(withBasePath(`/api/indicators/${indicatorId}/internal`), {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ [field]: text }),

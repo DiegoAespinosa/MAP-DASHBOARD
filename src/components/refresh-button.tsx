@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { IconAlert, IconCheck, IconClose, IconRefresh, IconSpinner } from '@/components/icons';
+import { withBasePath } from '@/lib/base-path';
 
 interface RefreshRow {
   id: string;
@@ -33,7 +34,7 @@ export function RefreshButton({ initiallyRunning }: { initiallyRunning: boolean 
 
   const poll = useCallback(async () => {
     try {
-      const res = await fetch(trackingId.current ? `/api/refresh?id=${trackingId.current}` : '/api/refresh', { cache: 'no-store' });
+      const res = await fetch(withBasePath(trackingId.current ? `/api/refresh?id=${trackingId.current}` : '/api/refresh'), { cache: 'no-store' });
       const row = (await res.json()) as RefreshRow | null;
       if (!row) return;
       if (row.status === 'RUNNING') {
@@ -63,7 +64,7 @@ export function RefreshButton({ initiallyRunning }: { initiallyRunning: boolean 
     setResult(null);
     setRunning(true);
     setProgress({ stage: 'INICIANDO' });
-    const res = await fetch('/api/refresh', { method: 'POST' });
+    const res = await fetch(withBasePath('/api/refresh'), { method: 'POST' });
     if (res.status === 202 || res.status === 409) {
       const body = await res.json().catch(() => ({}));
       trackingId.current = body.id ?? null;
