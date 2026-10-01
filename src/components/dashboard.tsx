@@ -6,6 +6,7 @@ import { EditableCell } from '@/components/editable-cell';
 import { IconAlert, IconChevron, IconDownload, IconSearch } from '@/components/icons';
 import { RefreshButton } from '@/components/refresh-button';
 import { fmtDate, fmtDateTime, fmtNumber } from '@/lib/format';
+import { SCORE_BAND_CLASS, scoreBand } from '@/lib/score-band';
 import { SEMAPHORE_LABEL, SEMAPHORE_ORDER, type Semaphore } from '@/lib/semaphore';
 import type { Board, BoardIndicator, BoardSource } from '@/server/data';
 
@@ -43,7 +44,7 @@ export function Dashboard({ board }: { board: Board }) {
       if (!showMissing && i.missing) return false;
       if (source && i.sourceId !== source) return false;
       if (semaphore && i.semaphore !== semaphore) return false;
-      if (q && !`${i.code} ${i.name} ${i.section ?? ''} ${i.responsible} ${i.notes}`.toLowerCase().includes(q)) return false;
+      if (q && !`${i.code} ${i.name} ${i.section ?? ''} ${i.responsible} ${i.contact}`.toLowerCase().includes(q)) return false;
       return true;
     });
     if (sort === 'deadline') list.sort((a, b) => (a.daysRemaining ?? 1e9) - (b.daysRemaining ?? 1e9));
@@ -63,11 +64,11 @@ export function Dashboard({ board }: { board: Board }) {
     <>
       <header className="bg-surface border-b border-line">
         <div className="mx-auto flex max-w-[1600px] flex-wrap items-center gap-x-5 gap-y-3 px-6 py-3">
-          <Image src="/inapa-logo.png" alt="INAPA – Instituto Nacional de Aguas Potables y Alcantarillados" width={500} height={110} priority className="h-11 w-auto" />
+          <Image src="/inapa-logo.png" alt="INAPA – Instituto Nacional de Aguas Potables y Alcantarillados" width={500} height={110} priority className="h-14 w-auto" />
           <div className="hidden h-8 w-px bg-line sm:block" aria-hidden />
           <div className="min-w-0">
-            <h1 className="text-[1.0667rem] leading-tight font-semibold">Seguimiento SISMAP</h1>
-            <p className="text-xs text-ink-2">Indicadores del Ministerio de Administración Pública</p>
+            <h1 className="text-xl leading-tight font-semibold">Seguimiento SISMAP</h1>
+            <p className="text-sm text-ink-2">Indicadores del Ministerio de Administración Pública</p>
           </div>
           <div className="ml-auto flex items-center gap-2">
             <a href="/api/export" className="btn btn-secondary" download>
@@ -80,7 +81,7 @@ export function Dashboard({ board }: { board: Board }) {
       </header>
 
       <main className="mx-auto max-w-[1600px] px-6 py-6">
-        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-2">
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-base text-ink-2">
           <span className={`inline-block h-2 w-2 rounded-full ${failedSources.length ? 'bg-sem-atencion-dot' : lastOk ? 'bg-sem-normal-dot' : 'bg-sem-sinfecha-dot'}`} aria-hidden />
           {lastOk ? (
             <>
@@ -141,7 +142,7 @@ export function Dashboard({ board }: { board: Board }) {
                 <span className="tnum font-semibold">{board.totals[k]}</span>
               </button>
             ))}
-            <span className="ml-1 text-xs text-ink-2">Según el próximo vencimiento de evidencias</span>
+            <span className="ml-1 text-sm text-ink-2">Según el próximo vencimiento de evidencias</span>
           </section>
         )}
 
@@ -150,7 +151,7 @@ export function Dashboard({ board }: { board: Board }) {
             <label className="relative">
               <span className="sr-only">Buscar</span>
               <IconSearch size={15} className="pointer-events-none absolute top-1/2 left-2.5 -translate-y-1/2 text-ink-3" />
-              <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar código, indicador, sección, responsable…" className="field w-80 pl-8" />
+              <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar código, indicador, responsable, contacto…" className="field w-80 pl-8" />
             </label>
             <label className="flex items-center gap-2 text-sm text-ink-2">
               Fuente
@@ -204,7 +205,7 @@ export function Dashboard({ board }: { board: Board }) {
           ) : (
             <table className="board w-full">
               <colgroup>
-                {[34, 78, null, 86, 64, 86, 50, 122, 56, 106, 92, 164, 230].map((w, idx) => (
+                {[36, 96, null, 96, 70, 96, 56, 136, 62, 116, 100, 190, 230].map((w, idx) => (
                   <col key={idx} style={w ? { width: w } : undefined} />
                 ))}
               </colgroup>
@@ -224,7 +225,7 @@ export function Dashboard({ board }: { board: Board }) {
                   <th>Semáforo</th>
                   <th className="num">Evidencias</th>
                   <th>Responsable</th>
-                  <th>Notas</th>
+                  <th>Contacto</th>
                 </tr>
               </thead>
               <tbody>
@@ -256,9 +257,9 @@ export function Dashboard({ board }: { board: Board }) {
           )}
         </div>
 
-        <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs text-ink-2">
-          <span>Datos de SISMAP, Ministerio de Administración Pública. Responsable y notas son información interna de INAPA y se conservan en cada actualización.</span>
-          <span>Semáforo: vencido · crítico 0-3 días · atención 4-7 · próximo 8-15 · normal más de 15</span>
+        <footer className="mt-4 flex flex-wrap items-center justify-between gap-2 text-sm text-ink-2">
+          <span>Datos de SISMAP, Ministerio de Administración Pública. Responsable y contacto son información interna de INAPA y se conservan en cada actualización.</span>
+          <span>Cuadros: rojo menos de 60 · amarillo 60 a 75 · verde más de 75. Semáforo: vencido · crítico 0-3 días · atención 4-7 · próximo 8-15 · normal más de 15</span>
         </footer>
       </main>
     </>
@@ -267,26 +268,29 @@ export function Dashboard({ board }: { board: Board }) {
 
 function SourceSummary({ source: s, indicators, active, onSelect }: { source: BoardSource; indicators: BoardIndicator[]; active: boolean; onSelect: () => void }) {
   const failed = !!s.lastStatus && s.lastStatus !== 'OK';
-  const headline = s.kind === 'RANKING' ? indicators.find((i) => i.code === 'IndicedeCumplimiento')?.score ?? null : s.lastOverallScore;
-  const headlineLabel = s.kind === 'RANKING' ? 'Índice de cumplimiento' : 'Promedio general';
+  const headline = s.kind === 'RANKING' ? indicators.find((i) => i.code === 'EDI')?.score ?? null : s.lastOverallScore;
+  const headlineLabel = s.kind === 'RANKING' ? 'IDI' : 'Promedio general';
+  const band = scoreBand(headline);
+  const bandClass = band ? SCORE_BAND_CLASS[band] : null;
   const overdue = indicators.filter((i) => i.semaphore === 'VENCIDO').length;
   const soon = indicators.filter((i) => i.semaphore === 'CRITICO' || i.semaphore === 'ATENCION' || i.semaphore === 'PROXIMO').length;
   return (
-    <button type="button" onClick={onSelect} aria-pressed={active} className={`group/src p-4 text-left transition-colors first:rounded-l-lg last:rounded-r-lg hover:bg-brand-tint/50 ${active ? 'bg-brand-tint/70' : ''}`}>
+    <button type="button" onClick={onSelect} aria-pressed={active} className={`group/src p-5 text-left transition-colors first:rounded-l-lg last:rounded-r-lg hover:bg-brand-tint/50 ${active ? 'bg-brand-tint/70' : ''}`}>
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate text-sm font-medium" title={s.name}>
+        <span className="truncate text-base font-medium" title={s.name}>
           {s.name}
         </span>
         {failed && <span className="shrink-0 rounded bg-sem-vencido-bg px-1.5 py-0.5 text-[0.7rem] font-semibold text-sem-vencido-ink">{s.lastStatus === 'ANOMALY' ? 'Anómalo' : 'Falló'}</span>}
       </div>
       <div className="mt-2 flex items-baseline gap-2">
-        <span className="tnum text-2xl font-semibold tracking-tight">{headline !== null ? `${fmtNumber(headline, 1)} %` : '—'}</span>
-        <span className="text-xs text-ink-2">{headlineLabel}</span>
+        <span className={`tnum text-4xl font-semibold tracking-tight ${bandClass?.text ?? ''}`}>{headline !== null ? `${fmtNumber(headline, 1)} %` : '—'}</span>
+        {bandClass && <span className="sr-only">{bandClass.label}</span>}
+        <span className="text-sm text-ink-2">{headlineLabel}</span>
       </div>
       <div className="progress mt-2" aria-hidden>
-        <span style={{ width: `${Math.max(0, Math.min(100, headline ?? 0))}%` }} />
+        <span className={bandClass?.bar ?? ''} style={{ width: `${Math.max(0, Math.min(100, headline ?? 0))}%` }} />
       </div>
-      <p className="tnum mt-2 text-xs text-ink-2">
+      <p className="tnum mt-2 text-sm text-ink-2">
         {indicators.length} {s.kind === 'RANKING' ? 'índices' : 'indicadores'}
         {overdue ? <span className="text-sem-vencido-ink"> · {overdue} vencido{overdue > 1 ? 's' : ''}</span> : null}
         {soon ? ` · ${soon} por vencer` : ''}
@@ -308,7 +312,7 @@ function IndicatorRow({ i, open, onToggle, showSource }: { i: BoardIndicator; op
           </button>
         )}
       </td>
-      <td className="tnum font-medium whitespace-nowrap">{i.code}</td>
+      <td className={i.code.length > 12 ? 'text-xs text-ink-3 [overflow-wrap:anywhere]' : 'tnum font-medium'}>{i.code}</td>
       <td>
         <div className="font-medium">{i.name}</div>
         {(showSource || i.status) && (
@@ -353,7 +357,7 @@ function IndicatorRow({ i, open, onToggle, showSource }: { i: BoardIndicator; op
         <EditableCell indicatorId={i.id} field="responsible" value={i.responsible} label={`Responsable de ${i.code} ${i.name}`} />
       </td>
       <td className="py-1.5">
-        <EditableCell indicatorId={i.id} field="notes" value={i.notes} label={`Notas de ${i.code} ${i.name}`} multiline />
+        <EditableCell indicatorId={i.id} field="contact" value={i.contact} label={`Contacto de ${i.code} ${i.name}`} copyable />
       </td>
     </tr>
   );

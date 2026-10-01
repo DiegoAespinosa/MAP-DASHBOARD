@@ -117,16 +117,16 @@ describe.skipIf(!hasDb)('actualización contra PostgreSQL', () => {
     expect(Array.isArray(refresh.snapshot)).toBe(true);
   });
 
-  it('segunda actualización: actualiza sin duplicar y conserva responsable y notas', async () => {
+  it('segunda actualización: actualiza sin duplicar y conserva responsable y contacto', async () => {
     const ind = await prisma.indicator.findUniqueOrThrow({ where: { sourceId_code: { sourceId: 'test-1', code: '01.1' } } });
-    await prisma.internalNote.create({ data: { indicatorId: ind.id, responsible: 'Juan Pérez', notes: 'Pendiente de enviar' } });
+    await prisma.internalNote.create({ data: { indicatorId: ind.id, responsible: 'Juan Pérez', contact: 'juan.perez@inapa.gob.do · 809-555-0100' } });
 
     const r = await runRefresh({ openSession: fakeSession() });
     expect(r.status).toBe('OK');
     expect(r.sources[0]).toMatchObject({ created: 0, updated: 25, missing: 0 });
     expect(await prisma.indicator.count({ where: TEST })).toBe(58);
     const note = await prisma.internalNote.findUniqueOrThrow({ where: { indicatorId: ind.id } });
-    expect(note).toMatchObject({ responsible: 'Juan Pérez', notes: 'Pendiente de enviar' });
+    expect(note).toMatchObject({ responsible: 'Juan Pérez', contact: 'juan.perez@inapa.gob.do · 809-555-0100' });
   });
 
   it('una fuente que falla no borra sus datos y el resto se actualiza', async () => {

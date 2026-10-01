@@ -87,7 +87,7 @@ model InternalNote {
   indicatorId String    @id
   indicator   Indicator @relation(fields: [indicatorId], references: [id], onDelete: Cascade)
   responsible String?
-  notes       String?
+  contact     String?
   updatedAt   DateTime  @updatedAt
 }
 

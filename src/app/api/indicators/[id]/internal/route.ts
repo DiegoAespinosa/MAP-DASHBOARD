@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 
 const Body = z.object({
   responsible: z.string().max(200).optional(),
-  notes: z.string().max(5000).optional(),
+  contact: z.string().max(500).optional(),
 });
 
 export async function PATCH(req: Request, ctx: { params: Promise<{ id: string }> }) {
@@ -15,11 +15,11 @@ export async function PATCH(req: Request, ctx: { params: Promise<{ id: string }>
   if (!parsed.success) return NextResponse.json({ error: 'Datos inválidos' }, { status: 400 });
   const indicator = await prisma.indicator.findUnique({ where: { id }, select: { id: true } });
   if (!indicator) return NextResponse.json({ error: 'Indicador no encontrado' }, { status: 404 });
-  const data = { responsible: parsed.data.responsible?.trim() ?? undefined, notes: parsed.data.notes?.trim() ?? undefined };
+  const data = { responsible: parsed.data.responsible?.trim() ?? undefined, contact: parsed.data.contact?.trim() ?? undefined };
   const note = await prisma.internalNote.upsert({
     where: { indicatorId: id },
     update: data,
-    create: { indicatorId: id, responsible: data.responsible ?? null, notes: data.notes ?? null },
+    create: { indicatorId: id, responsible: data.responsible ?? null, contact: data.contact ?? null },
   });
-  return NextResponse.json({ responsible: note.responsible ?? '', notes: note.notes ?? '', updatedAt: note.updatedAt });
+  return NextResponse.json({ responsible: note.responsible ?? '', contact: note.contact ?? '', updatedAt: note.updatedAt });
 }

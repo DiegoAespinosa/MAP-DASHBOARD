@@ -8,12 +8,12 @@ product
 
 Dos perfiles dentro del Instituto Nacional de Aguas Potables y Alcantarillados (INAPA), República Dominicana:
 
-- **Equipo de planificación y calidad** (uso diario): pocas personas, en oficina, en monitor de escritorio. Revisan qué evidencias de SISMAP vencen pronto, quién las verifica en el MAP, y anotan responsable interno y notas de seguimiento. Su tarea principal en pantalla: encontrar rápido lo vencido o próximo a vencer y dejar constancia de quién lo atiende.
+- **Equipo de planificación y calidad** (uso diario): pocas personas, en oficina, en monitor de escritorio. Revisan qué evidencias de SISMAP vencen pronto, quién las verifica en el MAP, y anotan responsable interno y contacto de seguimiento. Su tarea principal en pantalla: encontrar rápido lo vencido o próximo a vencer y dejar constancia de quién lo atiende.
 - **Dirección y gerencia** (consulta ocasional): entran para ver el cumplimiento general por fuente (SISMAP GP, EDI, Políticas Transversales, ranking) y los totales del semáforo. Necesitan el resumen en los primeros segundos, sin bajar a la tabla.
 
 ## Product Purpose
 
-Una sola página interna que muestra el último estado de los indicadores de INAPA en SISMAP (plataforma del Ministerio de Administración Pública), permite actualizarlos bajo demanda desde la fuente, exportarlos a Excel y registrar información interna (responsable, notas) que SISMAP no tiene. Sustituye la revisión manual de cuatro páginas de SISMAP y una hoja de cálculo compartida. Éxito: ningún vencimiento sorprende al equipo, y la dirección obtiene el cumplimiento sin pedir un informe.
+Una sola página interna que muestra el último estado de los indicadores de INAPA en SISMAP (plataforma del Ministerio de Administración Pública), permite actualizarlos bajo demanda desde la fuente, exportarlos a Excel y registrar información interna (responsable, contacto) que SISMAP no tiene. Sustituye la revisión manual de cuatro páginas de SISMAP y una hoja de cálculo compartida. Éxito: ningún vencimiento sorprende al equipo, y la dirección obtiene el cumplimiento sin pedir un informe.
 
 ## Brand Personality
 
@@ -24,7 +24,7 @@ Institucional, sobrio, fiable. Es una herramienta de gobierno: la identidad la l
 - Dashboards SaaS con tarjetas idénticas, grandes cifras con degradados y gráficos decorativos que no ayudan a decidir.
 - Paneles "oscuros tipo terminal" o estética tecnológica: no es el contexto ni el público.
 - La propia SISMAP (tablas anidadas, encabezados en mayúsculas de 12 px, medidores circulares sin texto): se toma la información, no el estilo.
-- Formularios y modales para editar una nota: la edición es en línea, al salir del campo.
+- Formularios y modales para editar responsable o contacto: la edición es en línea, al salir del campo.
 
 ## Design Principles
 

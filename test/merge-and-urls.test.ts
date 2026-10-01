@@ -66,6 +66,7 @@ describe('deriveSource', () => {
     expect(deriveSource('https://www.sismap.gob.do/GestionPublica/CargaEvidencia/PoliticasTransversales/177')).toEqual({ kind: 'CARGA_EVIDENCIA', exportUrl: 'https://www.sismap.gob.do/GestionPublica/CargaEvidencia/ExportarDatosTransversales/177' });
     expect(deriveSource('https://www.sismap.gob.do/GestionPublica/CargaEvidenciaEdi/Index/177')).toEqual({ kind: 'CARGA_EVIDENCIA', exportUrl: 'https://www.sismap.gob.do/GestionPublica/CargaEvidenciaEdi/ExportarDatos/177' });
     expect(deriveSource('https://www.sismap.gob.do/GestionPublica/Ranking/InformeAnualEdiView')).toEqual({ kind: 'RANKING', exportUrl: 'https://www.sismap.gob.do/GestionPublica/Ranking/ExportarEdi' });
+    expect(deriveSource('https://www.sismap.gob.do/GestionPublica/Ranking/RankingEdiView?Length=7')).toEqual({ kind: 'RANKING', exportUrl: 'https://www.sismap.gob.do/GestionPublica/Ranking/ExportarEdi' });
     expect(deriveSource('https://www.sismap.gob.do/otra/cosa')).toBeNull();
   });
 });
@@ -83,6 +84,21 @@ describe('rankingCodeFromLabel', () => {
     expect(rankingCodeFromLabel('SISMAP GP')).toBe('SismapGp');
     expect(rankingCodeFromLabel('Políticas Transversales')).toBe('PoliticasTransversales');
     expect(rankingCodeFromLabel('Índice de Cumplimiento')).toBe('IndicedeCumplimiento');
+    expect(rankingCodeFromLabel('IPI')).toBe('IndicedeCumplimiento');
+    expect(rankingCodeFromLabel('IPS')).toBe('IndicedeProgreso');
+    expect(rankingCodeFromLabel('NOBACI / ICI')).toBe('NOBACI');
+    expect(rankingCodeFromLabel('Índice de Transparencia Activa')).toBe('SAIP');
     expect(rankingCodeFromLabel('Posición')).toBeNull();
+  });
+});
+
+describe('scoreBand', () => {
+  it('rojo < 60, amarillo 60-75, verde > 75', async () => {
+    const { scoreBand } = await import('@/lib/score-band');
+    expect(scoreBand(59.9)).toBe('ROJO');
+    expect(scoreBand(60)).toBe('AMARILLO');
+    expect(scoreBand(75)).toBe('AMARILLO');
+    expect(scoreBand(75.1)).toBe('VERDE');
+    expect(scoreBand(null)).toBeNull();
   });
 });

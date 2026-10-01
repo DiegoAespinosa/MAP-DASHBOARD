@@ -53,7 +53,7 @@
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 body {
@@ -92,7 +92,7 @@ h3 {
 }
 
 table.board {
-  min-width: 1360px;
+  min-width: 1440px;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
@@ -103,18 +103,18 @@ table.board thead th {
   z-index: 10;
   background: var(--color-surface-2);
   color: var(--color-ink-2);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-align: left;
-  padding: 0.6rem 0.75rem;
+  padding: 0.7rem 0.75rem;
   border-bottom: 1px solid var(--color-line);
   white-space: nowrap;
 }
 table.board td {
-  padding: 0.6rem 0.75rem;
+  padding: 0.7rem 0.75rem;
   border-bottom: 1px solid var(--color-line);
   vertical-align: top;
-  font-size: 0.9333rem;
+  font-size: 0.9375rem;
   line-height: 1.4;
 }
 table.board tr[data-row] > td {
@@ -130,7 +130,7 @@ table.board tr[data-row][data-open="true"] > td {
 table.board tr.group > td {
   background: var(--color-surface-2);
   color: var(--color-ink-2);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   padding: 0.4rem 0.75rem;
 }
@@ -148,10 +148,10 @@ table.board .num {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  height: 2.4rem;
-  padding: 0 0.9rem;
+  height: 2.6rem;
+  padding: 0 1rem;
   border-radius: 6px;
-  font-size: 0.9333rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   white-space: nowrap;
   transition:
@@ -180,7 +180,7 @@ table.board .num {
 }
 
 .field {
-  height: 2.4rem;
+  height: 2.6rem;
   padding: 0 0.7rem;
   border: 1px solid var(--color-line-strong);
   border-radius: 6px;
@@ -202,10 +202,10 @@ table.board .num {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  height: 1.9rem;
-  padding: 0 0.7rem;
+  height: 2.1rem;
+  padding: 0 0.8rem;
   border-radius: 999px;
-  font-size: 0.8667rem;
+  font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
   border: 1px solid transparent;

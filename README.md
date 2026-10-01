@@ -11,7 +11,7 @@ Stack previsto: Next.js + TypeScript + Tailwind, Prisma + PostgreSQL, Playwright
 | 0 - Auditoría del repositorio | Completada | [docs/PROJECT_AUDIT.md](docs/PROJECT_AUDIT.md) |
 | 1 - Reconocimiento de URLs del MAP | Completada: 4 URL de SISMAP, sin JSON/API, exportación tabular + DOM | [docs/MAP_RECONNAISSANCE.md](docs/MAP_RECONNAISSANCE.md) |
 | 2 - Diseño mínimo (una página, actualizar, exportar) | Aprobado | [docs/PLAN.md](docs/PLAN.md) |
-| 3 - Implementación | Completada: página, actualización real contra SISMAP, exportación Excel, notas, Docker | [docs/DEPLOY.md](docs/DEPLOY.md) |
+| 3 - Implementación | Completada: página, actualización real contra SISMAP, exportación Excel, responsable y contacto, Docker | [docs/DEPLOY.md](docs/DEPLOY.md) |
 
 ## Desarrollo local
 

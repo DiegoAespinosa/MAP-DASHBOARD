@@ -59,17 +59,17 @@ export function parseIndicatorExport(body: string): ExportRow[] {
 
 /** Columnas del ranking EDI que son índices (el resto identifica al organismo). */
 export const RANKING_INDEX_LABELS: Record<string, string> = {
-  EDI: 'Índice EDI',
+  EDI: 'IDI',
+  SismapGp: 'SISMAP GP',
   IGP: 'IGP',
   SISCOMPRAS: 'SISCOMPRAS',
-  SismapGp: 'SISMAP GP',
   ITICGE: 'ITICGE',
-  NOBACI: 'NOBACI',
+  NOBACI: 'NOBACI / ICI',
+  SAIP: 'Índice de Transparencia Activa (SAIP)',
   PoliticasTransversales: 'Políticas Transversales',
-  IndicedeCumplimiento: 'Índice de Cumplimiento',
-  IndicedeProgreso: 'Índice de Progreso',
+  IndicedeCumplimiento: 'IPI',
+  IndicedeProgreso: 'IPS',
   SatisfaccionCiudadana: 'Satisfacción Ciudadana',
-  SAIP: 'SAIP',
 };
 
 /** Rótulos de la tabla de la página del ranking -> código de columna de la exportación. */
@@ -81,10 +81,15 @@ const RANKING_LABEL_TO_CODE: Record<string, string> = {
   sismapgp: 'SismapGp',
   iticge: 'ITICGE',
   nobaci: 'NOBACI',
+  nobaciici: 'NOBACI',
   saip: 'SAIP',
+  indicedetransparenciaactiva: 'SAIP',
+  indicedetransparenciaactivasaip: 'SAIP',
   politicastransversales: 'PoliticasTransversales',
   indicedecumplimiento: 'IndicedeCumplimiento',
+  ipi: 'IndicedeCumplimiento',
   indicedeprogreso: 'IndicedeProgreso',
+  ips: 'IndicedeProgreso',
   satisfaccionciudadana: 'SatisfaccionCiudadana',
 };
 

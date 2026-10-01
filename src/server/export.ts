@@ -27,7 +27,7 @@ export async function buildWorkbook(board: Board): Promise<Buffer> {
     { header: 'Evidencias vencidas', key: 'overdue', width: 18 },
     { header: 'Evidencias total', key: 'total', width: 16 },
     { header: 'Responsable', key: 'responsible', width: 24 },
-    { header: 'Notas', key: 'notes', width: 50 },
+    { header: 'Contacto', key: 'contact', width: 32 },
   ];
   for (const i of board.indicators) {
     if (i.missing) continue;
@@ -47,7 +47,7 @@ export async function buildWorkbook(board: Board): Promise<Buffer> {
       overdue: i.evidencesOverdue,
       total: i.evidencesTotal,
       responsible: i.responsible,
-      notes: i.notes,
+      contact: i.contact,
     });
   }
 

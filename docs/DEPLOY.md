@@ -26,12 +26,12 @@ Variables obligatorias en `.env`:
 | `MAP_USERNAME`, `MAP_PASSWORD` | cuenta autorizada de SISMAP |
 | `MAP_URL_1..4`, `MAP_URL_n_NAME` | las páginas de SISMAP a seguir |
 
-Opcionales: `ADMIN_ALLOWED_CIDRS` (restringir por IP, separadas por espacio), `BACKUP_RETENTION_DAYS` (30), `MAP_LOGIN_URL`.
+Opcionales: `ADMIN_ALLOWED_CIDRS` (restringir por IP, separadas por espacio), `BACKUP_RETENTION_DAYS` (30), `MAP_LOGIN_URL`, `MAP_ORGANISM_MATCH` (fila del organismo en las páginas de ranking; por defecto `INAPA|Aguas Potables`).
 
 ## 3. Uso
 - Abrir `https://DOMAIN`. Pulsar **Actualizar datos**; la primera carga tarda 1-2 minutos (inicio de sesión en SISMAP + 4 fuentes).
 - **Exportar a Excel** descarga indicadores y evidencias.
-- Responsable y notas se editan en la tabla y se conservan en cada actualización.
+- Responsable y contacto se editan en la tabla y se conservan en cada actualización.
 
 ## 4. Actualización automática (opcional)
 La aplicación no actualiza sola. Para hacerlo dos veces al día, en el servidor:
@@ -41,7 +41,7 @@ crontab -e
 ```
 
 ## 5. Cambiar una URL de SISMAP
-Editar `MAP_URL_n` en `.env` y reiniciar (`docker compose up -d`): la semilla actualiza la tabla `Source` sin tocar indicadores ni notas. También puede editarse directamente la fila en la tabla `Source` (`url` y `exportUrl`).
+Editar `MAP_URL_n` en `.env` y reiniciar (`docker compose up -d`): la semilla actualiza la tabla `Source` sin tocar indicadores ni datos internos. En desarrollo local, tras cambiar `.env` ejecute `npm run db:seed`. Rutas reconocidas: `CargaEvidencia/Index/{id}`, `CargaEvidencia/PoliticasTransversales/{id}`, `CargaEvidenciaEdi/Index/{id}`, `Ranking/RankingEdiView`, `Ranking/InformeAnualEdiView`; para otra ruta, defina `MAP_URL_n_EXPORT` y `MAP_URL_n_KIND`. También puede editarse directamente la fila en la tabla `Source` (`url` y `exportUrl`).
 
 ## 6. Copias de seguridad
 El servicio `backups` genera `pg_dump` diario en el volumen `backups` con rotación. Copiar fuera del servidor:

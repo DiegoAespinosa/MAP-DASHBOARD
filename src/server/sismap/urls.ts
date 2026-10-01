@@ -6,6 +6,6 @@ export function deriveSource(pageUrl: string): { kind: 'CARGA_EVIDENCIA' | 'RANK
   if ((m = /^(.*)\/CargaEvidencia\/Index\/(\d+)/i.exec(p))) return { kind: 'CARGA_EVIDENCIA', exportUrl: `${u.origin}${m[1]}/CargaEvidencia/ExportarDatos/${m[2]}` };
   if ((m = /^(.*)\/CargaEvidencia\/PoliticasTransversales\/(\d+)/i.exec(p))) return { kind: 'CARGA_EVIDENCIA', exportUrl: `${u.origin}${m[1]}/CargaEvidencia/ExportarDatosTransversales/${m[2]}` };
   if ((m = /^(.*)\/CargaEvidenciaEdi\/Index\/(\d+)/i.exec(p))) return { kind: 'CARGA_EVIDENCIA', exportUrl: `${u.origin}${m[1]}/CargaEvidenciaEdi/ExportarDatos/${m[2]}` };
-  if ((m = /^(.*)\/Ranking\/InformeAnualEdiView/i.exec(p))) return { kind: 'RANKING', exportUrl: `${u.origin}${m[1]}/Ranking/ExportarEdi` };
+  if ((m = /^(.*)\/Ranking\/(InformeAnualEdiView|RankingEdiView|EdiIndex)/i.exec(p))) return { kind: 'RANKING', exportUrl: `${u.origin}${m[1]}/Ranking/ExportarEdi` };
   return null;
 }

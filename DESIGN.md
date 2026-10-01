@@ -21,6 +21,7 @@ Herramienta institucional, tema claro. Estrategia de color **restringida**: neut
 | `--line` | oklch(0.90 0.006 265) | bordes |
 | `--line-strong` | oklch(0.82 0.01 265) | bordes de controles |
 | Semáforo | vencido rojo, crítico naranja, atención ámbar, próximo amarillo, normal verde, sin fecha gris | fondo tenue + texto oscuro del mismo matiz |
+| Bandas de puntuación (cuadros de resumen) | rojo < 60, amarillo 60-75, verde > 75 (`SCORE_BANDS` en `src/config.ts`) | color del número y de la barra; misma paleta que el semáforo |
 
 ## Typography
 
@@ -36,7 +37,7 @@ Escala de 4 px (Tailwind). Contenedor máximo 1600 px con margen lateral 24 px. 
 - **Botón secundario**: superficie blanca, borde `--line-strong`, mismo tamaño.
 - **Chips de semáforo**: píldora con fondo semántico tenue y texto oscuro; seleccionada con anillo `--brand`.
 - **Tabla**: encabezado `--surface-2` fijo, filas 44 px mínimo, hover `--brand-tint` al 50 %, filas de grupo con el nombre de la sección, filas desplegables para evidencias.
-- **Celda editable**: texto normal con borde invisible; al pasar el cursor muestra borde `--line-strong` y un icono de lápiz; al enfocar, borde `--brand`; al guardar, marca de verificación 1.5 s; en error, borde rojo y mensaje.
+- **Celda editable**: texto normal con borde invisible; al pasar el cursor muestra borde `--line-strong` y un icono de lápiz; al enfocar, borde `--brand`; al guardar, marca de verificación 1.5 s; en error, borde rojo y mensaje. La columna Contacto añade un botón de copiar al portapapeles (marca de verificación 1.5 s).
 - **Avisos**: banda con borde completo 1 px y fondo tenue (nunca franja lateral).
 
 ## Motion

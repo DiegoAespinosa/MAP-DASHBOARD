@@ -14,3 +14,9 @@ export const REFRESH_STALE_MINUTES = 20;
 export const ANOMALY_MIN_PERCENT = 20;
 
 export const TIMEZONE = 'America/Santo_Domingo';
+
+/** Colorimetría de puntuaciones (cuadros de resumen): rojo por debajo de `low`, amarillo hasta `high` inclusive, verde por encima. */
+export const SCORE_BANDS = {
+  low: 60,
+  high: 75,
+} as const;

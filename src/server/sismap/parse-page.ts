@@ -109,8 +109,14 @@ function parseEvidenceRow($: cheerio.CheerioAPI, tr: AnyNode, linkText: string, 
   return { code: head.code, name: head.name, dueDate, verifiedBy, value, status, externalRef: ref };
 }
 
-/** Página Ranking/InformeAnualEdiView: tabla con encabezados semánticos (fallback de la exportación). */
-export function parseRankingPage(html: string): { organismName: string | null; values: Record<string, number | null> } {
+/** Organismo cuya fila se toma en las páginas de ranking (todas las instituciones). Configurable con MAP_ORGANISM_MATCH. */
+export function organismMatcher(): RegExp {
+  const raw = process.env.MAP_ORGANISM_MATCH?.trim();
+  return raw ? new RegExp(raw, 'i') : /INAPA|Aguas Potables/i;
+}
+
+/** Páginas Ranking/*: tabla con encabezados semánticos; se toma la fila del organismo (fallback de la exportación). */
+export function parseRankingPage(html: string, organism: RegExp = organismMatcher()): { organismName: string | null; values: Record<string, number | null> } {
   const $ = cheerio.load(html);
   const table = $('table')
     .toArray()
@@ -120,11 +126,12 @@ export function parseRankingPage(html: string): { organismName: string | null; v
     .find('th')
     .toArray()
     .map((th) => cleanText($(th).text()));
-  const dataRow = $(table)
+  const dataRows = $(table)
     .find('tr')
     .toArray()
-    .find((tr) => $(tr).find('td').length >= headers.length - 1);
-  if (!dataRow) throw new SismapParseError('PAGE_STRUCTURE_CHANGED', 'La tabla del ranking no tiene fila de datos.');
+    .filter((tr) => $(tr).find('td').length >= headers.length - 1);
+  const dataRow = dataRows.find((tr) => organism.test(cleanText($(tr).text()))) ?? (dataRows.length === 1 ? dataRows[0] : undefined);
+  if (!dataRow) throw new SismapParseError('PAGE_STRUCTURE_CHANGED', `La tabla del ranking no tiene la fila del organismo (${organism.source}).`);
   const cells = $(dataRow)
     .find('td')
     .toArray()

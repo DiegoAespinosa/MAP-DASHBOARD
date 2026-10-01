@@ -52,6 +52,7 @@ describe('exportación "Descargar Datos"', () => {
     expect(r.indicators).toHaveLength(11);
     expect(r.indicators.find((i) => i.code === 'IGP')?.score).toBeNull();
     expect(r.indicators.find((i) => i.code === 'SismapGp')).toMatchObject({ name: 'SISMAP GP', score: 83.49 });
+    expect(r.indicators.find((i) => i.code === 'EDI')).toMatchObject({ name: 'IDI', score: 79.943613 });
   });
   it('falla de forma explícita si cambian las columnas o el formato', () => {
     expect(() => parseIndicatorExport('<table><tr><th>ID</th><th>Nombre</th></tr><tr><td>1</td><td>x</td></tr></table>')).toThrowError(SismapParseError);
@@ -106,6 +107,11 @@ describe('página Carga de Evidencia', () => {
 });
 
 describe('página del ranking (fallback)', () => {
+  it('elige la fila del organismo y, si solo hay una, la usa', () => {
+    const multi = '<table><tr><th>Posición</th><th>Nombre Organismo</th><th>IDI</th></tr><tr><td>1</td><td>Otro Organismo</td><td>50</td></tr><tr><td>2</td><td>Instituto Nacional de Aguas Potables y Alcantarillados</td><td>69.06</td></tr></table>';
+    expect(parseRankingPage(multi).values['IDI']).toBe(69.06);
+    expect(() => parseRankingPage(multi, /No Existe/)).toThrowError(/fila del organismo/);
+  });
   it('lee la tabla con encabezados semánticos', () => {
     const r = parseRankingPage(fixture('ranking-informe-anual-edi.html'));
     expect(r.organismName).toBe('Instituto Nacional de Aguas Potables y Alcantarillados');

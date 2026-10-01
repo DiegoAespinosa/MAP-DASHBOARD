@@ -33,7 +33,7 @@ export interface BoardIndicator {
   evidencesOverdue: number;
   evidences: BoardEvidence[];
   responsible: string;
-  notes: string;
+  contact: string;
   missing: boolean;
 }
 
@@ -105,7 +105,7 @@ export async function getBoard(): Promise<Board> {
       evidencesOverdue: live.filter((e) => e.overdue).length,
       evidences,
       responsible: i.internal?.responsible ?? '',
-      notes: i.internal?.notes ?? '',
+      contact: i.internal?.contact ?? '',
       missing: !!i.missingSince,
     };
   });
