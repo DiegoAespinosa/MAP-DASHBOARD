@@ -62,6 +62,7 @@ cd /opt/map-dashboard && git pull && docker compose up -d --build
 
 ## 8. Problemas frecuentes
 - **"SISMAP rechazó las credenciales"**: revisar `MAP_USERNAME`/`MAP_PASSWORD`; si SISMAP añadió CAPTCHA o segundo factor, la aplicación lo informa y no lo evade.
+- **"HTTP 500 al pedir ..."**: SISMAP falló momentáneamente. La aplicación reintenta 3 veces (2 s y 5 s de espera) y, si persiste, conserva los datos anteriores de esa fuente. Basta pulsar "Actualizar datos" más tarde.
 - **Una fuente en FAILED/ANOMALY**: el resto se actualiza igual y los datos anteriores de esa fuente se conservan; el mensaje aparece en la tarjeta de la fuente.
 - **Actualización "en curso" bloqueada**: tras 20 minutos sin actividad se marca como fallida automáticamente.
 - Logs: `docker compose logs -f app`.

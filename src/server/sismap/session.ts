@@ -129,18 +129,41 @@ export async function openSismapSession(opts: { loginUrl?: string; log?: (m: str
   const context = await browser.newContext({ storageState: existsSync(statePath) ? statePath : undefined, locale: 'es-DO' });
   let renewed = false;
 
+  const TRANSIENT_ATTEMPTS = 3;
+  const TRANSIENT_DELAYS_MS = [2000, 5000];
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+  /** GET con reintentos ante errores transitorios (5xx, red, timeout). */
+  const getWithRetry = async (url: string) => {
+    let lastError: unknown;
+    for (let attempt = 1; attempt <= TRANSIENT_ATTEMPTS; attempt++) {
+      try {
+        const res = await context.request.get(url, { maxRedirects: 0, timeout: 60_000 });
+        if (res.status() < 500 || attempt === TRANSIENT_ATTEMPTS) return res;
+        lastError = new HttpError(res.status(), url);
+      } catch (e) {
+        lastError = e;
+        if (attempt === TRANSIENT_ATTEMPTS) throw e;
+      }
+      log(`respuesta transitoria (${String((lastError as Error).message).slice(0, 80)}); reintento ${attempt}/${TRANSIENT_ATTEMPTS - 1} en ${TRANSIENT_DELAYS_MS[attempt - 1] / 1000}s`);
+      await sleep(TRANSIENT_DELAYS_MS[attempt - 1]);
+    }
+    throw lastError;
+  };
+
   const rawGet = async (url: string) => {
     assertAllowedUrl(url);
-    const res = await context.request.get(url, { maxRedirects: 0, timeout: 60_000 });
+    const res = await getWithRetry(url);
     const location = res.headers()['location'] ?? '';
     if (res.status() >= 300 && res.status() < 400 && LOGIN_PATH_RE.test(new URL(location, url).pathname)) {
-      return { res, loginRequired: true, loginPage: new URL(location, url).toString() };
+      return { res, loginRequired: true, loginPage: new URL(location, url).toString(), body: undefined as string | undefined };
     }
     if (res.status() === 200 && LOGIN_PATH_RE.test(new URL(res.url()).pathname)) {
-      return { res, loginRequired: true, loginPage: res.url() };
+      return { res, loginRequired: true, loginPage: res.url(), body: undefined as string | undefined };
     }
-    // SISMAP a veces sirve el formulario de login con 200 en la misma URL (p. ej. exportaciones).
-    if (res.status() === 200 && /text\/html/i.test(res.headers()['content-type'] ?? '')) {
+    // SISMAP a veces sirve el formulario de login con 200 en la misma URL, incluso con
+    // content-type de Excel en las exportaciones. Se inspecciona el cuerpo de toda respuesta 200.
+    if (res.status() === 200) {
       const body = (await res.body()).toString('utf8');
       if (/type="password"/i.test(body) && /iniciar sesi/i.test(body)) {
         return { res, loginRequired: true, loginPage: url, body };
