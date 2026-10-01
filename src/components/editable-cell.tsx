@@ -1,24 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { IconCheck, IconPencil, IconSpinner } from '@/components/icons';
 
 interface Props {
   indicatorId: string;
   field: 'responsible' | 'notes';
   value: string;
+  label: string;
   multiline?: boolean;
 }
 
-/** Celda editable; guarda al salir del campo. La actualización desde SISMAP nunca toca estos datos. */
-export function EditableCell({ indicatorId, field, value, multiline }: Props) {
+/** Celda editable en línea: guarda al salir del campo. La actualización desde SISMAP nunca toca estos datos. */
+export function EditableCell({ indicatorId, field, value, label, multiline }: Props) {
   const [text, setText] = useState(value);
   const [saved, setSaved] = useState(value);
-  const [state, setState] = useState<'idle' | 'saving' | 'error'>('idle');
+  const [state, setState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setText(value);
     setSaved(value);
   }, [value]);
+
+  useEffect(() => () => {
+    if (timer.current) clearTimeout(timer.current);
+  }, []);
 
   async function save() {
     if (text === saved) return;
@@ -31,22 +38,57 @@ export function EditableCell({ indicatorId, field, value, multiline }: Props) {
       });
       if (!res.ok) throw new Error(String(res.status));
       setSaved(text);
-      setState('idle');
+      setState('saved');
+      timer.current = setTimeout(() => setState('idle'), 1500);
     } catch {
       setState('error');
     }
   }
 
-  const base = 'w-full rounded border border-transparent bg-transparent px-1 py-0.5 text-sm hover:border-slate-300 focus:border-blue-500 focus:bg-white focus:outline-none';
-  const status = state === 'saving' ? 'opacity-60' : state === 'error' ? 'border-red-400' : '';
+  const shared = {
+    value: text,
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setText(e.target.value),
+    onBlur: save,
+    placeholder: 'Añadir…',
+    'aria-label': label,
+    'aria-invalid': state === 'error' ? true : undefined,
+    className: 'editable',
+  };
+
   return (
-    <div className="relative min-w-[10rem]">
+    <div className="editable-wrap relative">
       {multiline ? (
-        <textarea value={text} onChange={(e) => setText(e.target.value)} onBlur={save} rows={text.length > 60 ? 3 : 1} placeholder="—" className={`${base} ${status} resize-y`} />
+        <textarea {...shared} rows={Math.min(4, Math.max(1, Math.ceil(text.length / 38)))} className="editable resize-none" />
       ) : (
-        <input value={text} onChange={(e) => setText(e.target.value)} onBlur={save} onKeyDown={(e) => e.key === 'Enter' && (e.target as HTMLInputElement).blur()} placeholder="—" className={`${base} ${status}`} />
+        <input
+          {...shared}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') (e.target as HTMLInputElement).blur();
+            if (e.key === 'Escape') {
+              setText(saved);
+              (e.target as HTMLInputElement).blur();
+            }
+          }}
+        />
       )}
-      {state === 'error' && <span className="absolute -bottom-3 left-1 text-[10px] text-red-600">No se pudo guardar</span>}
+      <span className="pointer-events-none absolute top-1.5 right-1.5 text-ink-3" aria-live="polite">
+        {state === 'saving' && <IconSpinner size={14} />}
+        {state === 'saved' && (
+          <span className="text-ok fade-in">
+            <IconCheck size={14} />
+            <span className="sr-only">Guardado</span>
+          </span>
+        )}
+        {state === 'idle' && <IconPencil size={13} className="opacity-0 transition-opacity [.editable-wrap:hover_&]:opacity-100" />}
+      </span>
+      {state === 'error' && (
+        <p role="alert" className="mt-1 text-xs text-danger">
+          No se pudo guardar.{' '}
+          <button type="button" onClick={save} className="underline">
+            Reintentar
+          </button>
+        </p>
+      )}
     </div>
   );
 }

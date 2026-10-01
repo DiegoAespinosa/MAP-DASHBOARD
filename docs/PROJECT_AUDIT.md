@@ -83,7 +83,7 @@ No se creó todavía el monorepo de aplicaciones (`apps/`), Docker, Prisma, Nest
 |---|---|---|
 | 0 - Auditoría | **Completada** | `docs/PROJECT_AUDIT.md` |
 | 1 - Reconocimiento | **Completada** (4 URL de SISMAP analizadas con sesión autorizada; sin JSON/API; exportación tabular + DOM) | `docs/MAP_RECONNAISSANCE.md`, `docs/recon/AUTO_REPORT.md`, `tools/recon/` |
-| 2 - Diseño mínimo | **Completada** (alcance reducido a una página + actualizar + exportar, por decisión del propietario) | `docs/DESIGN.md` |
+| 2 - Diseño mínimo | **Completada** (alcance reducido a una página + actualizar + exportar, por decisión del propietario) | `docs/PLAN.md` |
 | 3 - Implementación | **Completada** | código en `src/`, `prisma/`, `docker-compose.yml`, `docs/DEPLOY.md` |
 
 ## 6. Próximos pasos
