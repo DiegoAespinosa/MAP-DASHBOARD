@@ -1,0 +1,270 @@
+{
+  "source": {
+    "index": 3,
+    "name": "Implementacion EDI",
+    "slug": "03-implementacion-edi",
+    "url": "https://www.sismap.gob.do/GestionPublica/CargaEvidenciaEdi/Index/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados"
+  },
+  "redactedUrl": "https://www.sismap.gob.do/GestionPublica/CargaEvidenciaEdi/Index/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados",
+  "startedAt": "2026-09-30T23:56:20.376Z",
+  "durationMs": 8464,
+  "preflight": {
+    "status": 200,
+    "contentType": "text/html"
+  },
+  "accessibility": "ACCESIBLE",
+  "auth": {
+    "outcome": "SESSION_REUSED",
+    "summary": "SESSION COOKIE (storageState reutilizado)",
+    "details": [],
+    "sessionCookieNames": [
+      "ASP.NET_SessionId",
+      "__RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0",
+      ".ASPXAUTH"
+    ],
+    "bearerObserved": false
+  },
+  "page": {
+    "finalUrl": "https://www.sismap.gob.do/GestionPublica/CargaEvidenciaEdi/Index/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados",
+    "title": "Carga de Evidencia",
+    "rendering": "ESTATICO",
+    "frameworkHints": [
+      "WordPress",
+      "jQuery"
+    ],
+    "initialHtmlBytes": 105956,
+    "initialTextChars": 5101,
+    "domTextChars": 4361,
+    "tables": {
+      "count": 49,
+      "rows": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "headers": [
+        [
+          "info@inapa.gob.do",
+          "8095671241",
+          "Calle Guarocuya, Edificio INAPA, Centro Comercial El Millon, Santo Domingo",
+          "http://www.inapa.gob.do/"
+        ],
+        [
+          "Promedio General\n100 %",
+          "Descargar Datos"
+        ],
+        [
+          "01. Preparación y Generación de Condiciones Previas"
+        ],
+        [
+          "01.1 Conformación de Comité Técnico de Evaluación del Desempeño Institucional (EDI)",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.2 Acuerdo/Compromiso de Desempeño",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.3 Socialización Interna sobre la Evaluación del Desempeño Institucional (EDI)",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.4 Socialización Externa sobre la Evaluación de Desempeño Institucional (EDI)",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.5 Estrategía de Comunicación Metas Prioritarias de Gobierno",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.6 Capacitación por el Equipo del Comité EDI",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.7 Aplicación de la Encuesta de Clima Organizacional",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "02. Elaboración e Implementación del Plan de Mejora (Plan de Acción/Trabajo)"
+        ],
+        [
+          "02.1 Plan de Trabajo y Definición de Metas.",
+          "PUNTOS\n100",
+          "PESO\n10",
+          "RESULTADO\n10",
+          "Tabla de Valoración"
+        ],
+        [
+          "02.2 Conformación y Gestión de Reuniones a Nivel Inter e Intrasectorial para el Logro de los Indicadores de Resultados",
+          "PUNTOS\n100",
+          "PESO\n10",
+          "RESULTADO\n10",
+          "Tabla de Valoración"
+        ],
+        [
+          "02.3 Integración de las Metas Numérica del Desempeño Institucional en los Instrumentos de Planificación y Presupuestación Institucional",
+          "PUNTOS\n100",
+          "PESO\n10",
+          "RESULTADO\n10",
+          "Tabla de Valoración"
+        ],
+        [
+          "03. Autoevaluación"
+        ],
+        [
+          "03.1 Presentación de Resultados Logrados en el 2025",
+          "PUNTOS\n100",
+          "PESO\n5",
+          "RESULTADO\n5",
+          "Tabla de Valoración"
+        ],
+        [
+          "03.2 Presentación de la Evaluación del Desempeño Institucional EDI 2025",
+          "PUNTOS\n100",
+          "PESO\n10",
+          "RESULTADO\n10",
+          "Tabla de Valoración"
+        ],
+        [
+          "04. Seguimiento del Plan de Trabajo"
+        ],
+        [
+          "04.1 Informe Trimestral de Seguimiento y Avance del Plan de Trabajo",
+          "PUNTOS\n100",
+          "PESO\n10",
+          "RESULTADO\n10",
+          "Tabla de Valoración"
+        ],
+        [
+          "05. Verificación e Informe de Evaluación del Desempeño Institucional"
+        ],
+        [
+          "05.1 Informe de Resultados",
+          "PUNTOS\n100",
+          "PESO\n10",
+          "RESULTADO\n10",
+          "Tabla de Valoración"
+        ]
+      ]
+    },
+    "embeddedJson": [],
+    "forms": {
+      "count": 0,
+      "methods": []
+    },
+    "paginationHints": [],
+    "iframes": [],
+    "links": 40
+  },
+  "stats": {
+    "total": 36,
+    "noise": 4,
+    "json": 0,
+    "graphql": 0,
+    "html": 1,
+    "xhrFetch": 0,
+    "websockets": 0
+  },
+  "candidates": [],
+  "exports": [
+    {
+      "text": "Descargar Datos",
+      "url": "https://www.sismap.gob.do/GestionPublica/CargaEvidenciaEdi/ExportarDatos/177",
+      "path": "/GestionPublica/CargaEvidenciaEdi/ExportarDatos/177",
+      "status": 200,
+      "contentType": "application/vnd.ms-excel",
+      "disposition": "attachment; filename=DatosOrganismo.xls",
+      "sizeBytes": 2840,
+      "kind": "HTML_TABLE",
+      "columns": [
+        "OrganismoID",
+        "CODIGO",
+        "INDICADOR",
+        "VALOR_ACTUAL",
+        "PESO",
+        "CALCULO"
+      ],
+      "rowCount": 14,
+      "sampleFile": "docs/recon/03-implementacion-edi/samples/export-01-descargar-datos.html"
+    }
+  ],
+  "errors": [],
+  "artifactsDir": "docs/recon/03-implementacion-edi",
+  "recommendation": {
+    "primary": "CUSTOM",
+    "fallback": "DOM (tablas HTML presentes)",
+    "stability": "MEDIA",
+    "extractionCase": "D (exportacion tabular + DOM complementario)",
+    "rationale": [
+      "Exportacion tabular estable: \"Descargar Datos\" -> /GestionPublica/CargaEvidenciaEdi/ExportarDatos/177 (HTML_TABLE, 6 columnas: OrganismoID, CODIGO, INDICADOR, VALOR_ACTUAL, PESO, CALCULO; 14 filas).",
+      "Sin JSON/API, pero la exportacion ofrece columnas semanticas; usarla como fuente principal y el DOM para los datos que no incluya."
+    ]
+  }
+}

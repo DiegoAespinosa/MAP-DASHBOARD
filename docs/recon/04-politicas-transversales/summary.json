@@ -1,0 +1,275 @@
+{
+  "source": {
+    "index": 4,
+    "name": "Politicas Transversales",
+    "slug": "04-politicas-transversales",
+    "url": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/PoliticasTransversales/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados"
+  },
+  "redactedUrl": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/PoliticasTransversales/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados",
+  "startedAt": "2026-09-30T23:56:28.843Z",
+  "durationMs": 11728,
+  "preflight": {
+    "status": 200,
+    "contentType": "text/html"
+  },
+  "accessibility": "ACCESIBLE",
+  "auth": {
+    "outcome": "SESSION_REUSED",
+    "summary": "SESSION COOKIE (storageState reutilizado)",
+    "details": [],
+    "sessionCookieNames": [
+      "ASP.NET_SessionId",
+      "__RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0",
+      ".ASPXAUTH"
+    ],
+    "bearerObserved": false
+  },
+  "page": {
+    "finalUrl": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/PoliticasTransversales/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados",
+    "title": "Carga de Evidencia",
+    "rendering": "ESTATICO",
+    "frameworkHints": [
+      "WordPress",
+      "jQuery"
+    ],
+    "initialHtmlBytes": 194855,
+    "initialTextChars": 7930,
+    "domTextChars": 7344,
+    "tables": {
+      "count": 86,
+      "rows": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "headers": [
+        [
+          "info@inapa.gob.do",
+          "8095671241",
+          "http://www.inapa.gob.do/"
+        ],
+        [
+          "Promedio General\n81.84 %",
+          "Descargar Datos"
+        ],
+        [
+          "01.POLÍTICA TRANSVERSAL DE GÉNERO"
+        ],
+        [
+          "Pt 01.1 Arquitectura Institucional para la Inclusión del Enfoque de Género",
+          "PUNTOS\n70",
+          "PESO\n5.55",
+          "RESULTADO\n3.89",
+          "Tabla de Valoración"
+        ],
+        [
+          "Pt 01.2 Generación de Capacidades para la Inclusión del Enfoque de Género en las Políticas Públicas",
+          "PUNTOS\n0",
+          "PESO\n5.55",
+          "RESULTADO\n0",
+          "Tabla de Valoración"
+        ],
+        [
+          "Pt 01.3 Inclusión del Enfoque de Género en las Políticas Públicas",
+          "PUNTOS\n80",
+          "PESO\n5.56",
+          "RESULTADO\n4.45",
+          "Tabla de Valoración"
+        ],
+        [
+          "02.POLÍTICA TRANSVERSAL DE COHESIÓN TERRITORIAL"
+        ],
+        [
+          "Pt 02.1 Cohesión Territorial",
+          "PUNTOS\n85",
+          "PESO\n16.67",
+          "RESULTADO\n14.17",
+          "Tabla de Valoración"
+        ],
+        [
+          "03.POLÍTICA TRANSVERSAL DE SOSTENIBILIDAD AMBIENTAL"
+        ],
+        [
+          "Pt 03.1 Sostenibilidad Ambiental",
+          "PUNTOS\n79",
+          "PESO\n16.67",
+          "RESULTADO\n13.17",
+          "Tabla de Valoración"
+        ],
+        [
+          "04.POLÍTICA TRANSVERSAL DE GESTIÓN INTEGRAL DE RIESGOS"
+        ],
+        [
+          "Pt 04.1 Gestión Integral de Riesgos",
+          "PUNTOS\n100",
+          "PESO\n16.67",
+          "RESULTADO\n16.67",
+          "Tabla de Valoración"
+        ],
+        [
+          "05.POLÍTICA TRANSVERSAL DE DERECHOS HUMANOS"
+        ],
+        [
+          "Pt 05.1 Derechos Humanos",
+          "PUNTOS\n80",
+          "PESO\n16.66",
+          "RESULTADO\n13.33",
+          "Tabla de Valoración"
+        ],
+        [
+          "06.POLÍTICA TRANSVERSAL DE PARTICIPACIÓN SOCIAL (Sectoriales)"
+        ],
+        [
+          "Ptm 06.1 Participación Social (Sectoriales)",
+          "No Aplica",
+          "Tabla de Valoración"
+        ],
+        [
+          "06.POLÍTICA TRANSVERSAL DE PARTICIPACIÓN SOCIAL (No Sectoriales)"
+        ],
+        [
+          "Pt 06.1 Participación Social (No Sectoriales)",
+          "PUNTOS\n97",
+          "PESO\n16.66",
+          "RESULTADO\n16.16",
+          "Tabla de Valoración"
+        ]
+      ]
+    },
+    "embeddedJson": [],
+    "forms": {
+      "count": 0,
+      "methods": []
+    },
+    "paginationHints": [],
+    "iframes": [],
+    "links": 81
+  },
+  "stats": {
+    "total": 39,
+    "noise": 4,
+    "json": 0,
+    "graphql": 0,
+    "html": 1,
+    "xhrFetch": 0,
+    "websockets": 0
+  },
+  "candidates": [],
+  "exports": [
+    {
+      "text": "Descargar Datos",
+      "url": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/ExportarDatosTransversales/177",
+      "path": "/GestionPublica/CargaEvidencia/ExportarDatosTransversales/177",
+      "status": 200,
+      "contentType": "application/vnd.ms-excel",
+      "disposition": "attachment; filename=DatosOrganismo.xls",
+      "sizeBytes": 1571,
+      "kind": "HTML_TABLE",
+      "columns": [
+        "OrganismoID",
+        "CODIGO",
+        "INDICADOR",
+        "VALOR_ACTUAL",
+        "PESO",
+        "CALCULO"
+      ],
+      "rowCount": 8,
+      "sampleFile": "docs/recon/04-politicas-transversales/samples/export-01-descargar-datos.html"
+    }
+  ],
+  "errors": [],
+  "artifactsDir": "docs/recon/04-politicas-transversales",
+  "recommendation": {
+    "primary": "CUSTOM",
+    "fallback": "DOM (tablas HTML presentes)",
+    "stability": "MEDIA",
+    "extractionCase": "D (exportacion tabular + DOM complementario)",
+    "rationale": [
+      "Exportacion tabular estable: \"Descargar Datos\" -> /GestionPublica/CargaEvidencia/ExportarDatosTransversales/177 (HTML_TABLE, 6 columnas: OrganismoID, CODIGO, INDICADOR, VALOR_ACTUAL, PESO, CALCULO; 8 filas).",
+      "Sin JSON/API, pero la exportacion ofrece columnas semanticas; usarla como fuente principal y el DOM para los datos que no incluya."
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+# Solo para desarrollo local: PostgreSQL de pruebas en el puerto 54321.
+# Uso: docker compose -f docker-compose.dev.yml up -d
+# DATABASE_URL=postgresql://postgres:postgres@localhost:54321/map_dashboard
+services:
+  postgres-dev:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: map_dashboard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "54321:5432"
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+
+volumes:
+  pgdata_dev:

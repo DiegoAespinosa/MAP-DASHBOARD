@@ -1,0 +1,19 @@
+{
+  "name": "@map-dashboard/recon",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fase 1 - reconocimiento tecnico de URLs del MAP con Playwright (no es el scraper definitivo)",
+  "type": "module",
+  "scripts": {
+    "recon": "tsx src/recon.ts",
+    "recon:login": "tsx src/login-cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/**/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "playwright": "1.62.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

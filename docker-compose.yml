@@ -1,0 +1,84 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: map_dashboard
+      POSTGRES_USER: ${POSTGRES_USER:-map}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD en .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-map} -d map_dashboard"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    # Sin "ports": PostgreSQL solo es accesible desde la red interna de Docker.
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-map}:${POSTGRES_PASSWORD}@postgres:5432/map_dashboard
+      MAP_USERNAME: ${MAP_USERNAME}
+      MAP_PASSWORD: ${MAP_PASSWORD}
+      MAP_LOGIN_URL: ${MAP_LOGIN_URL:-}
+      MAP_ALLOWED_HOSTS: ${MAP_ALLOWED_HOSTS:-www.sismap.gob.do}
+      MAP_URL_1: ${MAP_URL_1:-}
+      MAP_URL_1_NAME: ${MAP_URL_1_NAME:-}
+      MAP_URL_2: ${MAP_URL_2:-}
+      MAP_URL_2_NAME: ${MAP_URL_2_NAME:-}
+      MAP_URL_3: ${MAP_URL_3:-}
+      MAP_URL_3_NAME: ${MAP_URL_3_NAME:-}
+      MAP_URL_4: ${MAP_URL_4:-}
+      MAP_URL_4_NAME: ${MAP_URL_4_NAME:-}
+      APP_DATA_DIR: /app/data
+    volumes:
+      - appdata:/app/data
+    mem_limit: 2g
+    security_opt:
+      - no-new-privileges:true
+    # Sin "ports": solo Caddy llega a la app.
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?Defina DOMAIN en .env (dominio o IP pública)}
+      ADMIN_ALLOWED_CIDRS: ${ADMIN_ALLOWED_CIDRS:-0.0.0.0/0}
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  backups:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGHOST: postgres
+      PGUSER: ${POSTGRES_USER:-map}
+      PGPASSWORD: ${POSTGRES_PASSWORD}
+      PGDATABASE: map_dashboard
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-30}
+    volumes:
+      - ./docker/backup.sh:/backup.sh:ro
+      - backups:/backups
+    entrypoint: ["/bin/sh", "/backup.sh"]
+
+volumes:
+  pgdata:
+  appdata:
+  caddy_data:
+  caddy_config:
+  backups:

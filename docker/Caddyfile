@@ -1,0 +1,20 @@
+# HTTPS automático con Let's Encrypt cuando DOMAIN es un nombre de dominio.
+# Si DOMAIN es una IP, Caddy emite un certificado interno (el navegador avisará).
+{$DOMAIN} {
+	encode gzip
+
+	# Restricción opcional por IP institucional: ponga en .env
+	#   ADMIN_ALLOWED_CIDRS=200.1.2.0/24 190.3.4.5/32
+	# Por defecto (0.0.0.0/0) no restringe nada.
+	@blocked not remote_ip {$ADMIN_ALLOWED_CIDRS}
+	respond @blocked "Acceso restringido" 403
+
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy same-origin
+	}
+
+	reverse_proxy app:3000
+}

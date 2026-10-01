@@ -1,0 +1,456 @@
+{
+  "source": {
+    "index": 1,
+    "name": "SISMAP",
+    "slug": "01-sismap",
+    "url": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/Index/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados"
+  },
+  "redactedUrl": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/Index/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados",
+  "startedAt": "2026-09-30T23:55:27.974Z",
+  "durationMs": 15377,
+  "preflight": {
+    "status": 200,
+    "contentType": "text/html"
+  },
+  "accessibility": "ACCESIBLE",
+  "auth": {
+    "outcome": "SESSION_REUSED",
+    "summary": "SESSION COOKIE (storageState reutilizado)",
+    "details": [],
+    "sessionCookieNames": [
+      "ASP.NET_SessionId",
+      "__RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0",
+      ".ASPXAUTH"
+    ],
+    "bearerObserved": false
+  },
+  "page": {
+    "finalUrl": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/Index/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados",
+    "title": "Carga de Evidencia",
+    "rendering": "ESTATICO",
+    "frameworkHints": [
+      "WordPress",
+      "jQuery"
+    ],
+    "initialHtmlBytes": 243481,
+    "initialTextChars": 16221,
+    "domTextChars": 14860,
+    "tables": {
+      "count": 150,
+      "rows": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "headers": [
+        [
+          "info@inapa.gob.do",
+          "8095671241",
+          "Calle Guarocuya, Edificio INAPA, Centro Comercial El Millon, Santo Domingo",
+          "http://www.inapa.gob.do/"
+        ],
+        [
+          "Promedio General\n83.7 %",
+          "Descargar Datos"
+        ],
+        [
+          "01.GESTIÓN DE LA CALIDAD Y SERVICIOS"
+        ],
+        [
+          "01.1 Autoevaluación CAF",
+          "PUNTOS\n100",
+          "PESO\n4.57",
+          "RESULTADO\n4.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.2 Plan de Mejora Modelo CAF",
+          "PUNTOS\n100",
+          "PESO\n7.57",
+          "RESULTADO\n7.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.3 Estandarización de Procesos",
+          "PUNTOS\n50",
+          "PESO\n4.57",
+          "RESULTADO\n2.28",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.4 Carta Compromiso",
+          "Inactivo Temporal",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.5 Transparencia en las Informaciones de Servicios y Funcionarios",
+          "PUNTOS\n100",
+          "PESO\n3.57",
+          "RESULTADO\n3.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.6 Monitoreo de la Calidad de los Servicios",
+          "PUNTOS\n100",
+          "PESO\n3.57",
+          "RESULTADO\n3.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.7 Índice de Satisfacción Ciudadana",
+          "PUNTOS\n93",
+          "PESO\n3.57",
+          "RESULTADO\n3.32",
+          "Tabla de Valoración"
+        ],
+        [
+          "01.8 Inventario de Trámites y Servicios",
+          "Inactivo Temporal",
+          "Tabla de Valoración"
+        ],
+        [
+          "02.ORGANIZACIÓN DE LA FUNCIÓN DE RECURSOS HUMANOS"
+        ],
+        [
+          "02.1 Nivel de Administración del Sistema de Carrera Administrativa",
+          "PUNTOS\n100",
+          "PESO\n3.57",
+          "RESULTADO\n3.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "03. PLANIFICACIÓN DE RECURSOS HUMANOS"
+        ],
+        [
+          "03.1 Plan de Recursos Humanos",
+          "PUNTOS\n80",
+          "PESO\n3.57",
+          "RESULTADO\n2.85",
+          "Tabla de Valoración"
+        ],
+        [
+          "04.ORGANIZACIÓN DEL TRABAJO"
+        ],
+        [
+          "04.1 Estructura Organizativa",
+          "PUNTOS\n70",
+          "PESO\n3.57",
+          "RESULTADO\n2.5",
+          "Tabla de Valoración"
+        ],
+        [
+          "04.2 Manual de Organización y Funciones",
+          "PUNTOS\n100",
+          "PESO\n3.57",
+          "RESULTADO\n3.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "04.3 Manual de Cargos Implementado",
+          "PUNTOS\n0",
+          "PESO\n4.57",
+          "RESULTADO\n0",
+          "Tabla de Valoración"
+        ],
+        [
+          "05.GESTIÓN DEL EMPLEO"
+        ],
+        [
+          "05.1 Concursos Públicos",
+          "PUNTOS\n100",
+          "PESO\n4.57",
+          "RESULTADO\n4.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "05.2 Implementación del Sistema Transversal de Gestión Humana y Nómina",
+          "PUNTOS\n0",
+          "PESO\n3.57",
+          "RESULTADO",
+          "Tabla de Valoración"
+        ],
+        [
+          "06.GESTIÓN DE LAS COMPENSACIONES Y BENEFICIOS"
+        ],
+        [
+          "06.1 Escala Salarial",
+          "PUNTOS\n90",
+          "PESO\n7.57",
+          "RESULTADO\n6.81",
+          "Tabla de Valoración"
+        ],
+        [
+          "07. GESTIÓN DEL RENDIMIENTO"
+        ],
+        [
+          "07.1 Gestión de Acuerdos de Desempeño",
+          "PUNTOS\n96",
+          "PESO\n4.57",
+          "RESULTADO\n4.38",
+          "Tabla de Valoración"
+        ],
+        [
+          "07.2 Evaluación del Desempeño por Resultados y Competencias",
+          "PUNTOS\n94",
+          "PESO\n4.57",
+          "RESULTADO\n4.29",
+          "Tabla de Valoración"
+        ],
+        [
+          "08.GESTIÓN DEL DESARROLLO"
+        ],
+        [
+          "08.1 Plan de Capacitación",
+          "PUNTOS\n82",
+          "PESO\n3.57",
+          "RESULTADO\n2.92",
+          "Tabla de Valoración"
+        ],
+        [
+          "09.GESTIÓN DE LAS RELACIONES LABORALES Y SOCIALES"
+        ],
+        [
+          "09.1 Asociación de Servidores Públicos",
+          "PUNTOS\n80",
+          "PESO\n3.57",
+          "RESULTADO\n2.85",
+          "Tabla de Valoración"
+        ],
+        [
+          "09.2 Fortalecimiento de las Relaciones Laborales",
+          "PUNTOS\n79",
+          "PESO\n3.57",
+          "RESULTADO\n2.82",
+          "Tabla de Valoración"
+        ],
+        [
+          "09.3 Institucionalización del Régimen Ético y Disciplinario de los Servidores Públicos en el 100% del personal",
+          "PUNTOS\n100",
+          "PESO\n3.57",
+          "RESULTADO\n3.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "09.4 Implementación del Sistema de Seguridad y Salud en el Trabajo en la Administración Pública",
+          "PUNTOS\n85",
+          "PESO\n3.57",
+          "RESULTADO\n3.03",
+          "Tabla de Valoración"
+        ],
+        [
+          "09.5 Encuesta de Clima Laboral",
+          "PUNTOS\n100",
+          "PESO\n4.57",
+          "RESULTADO\n4.57",
+          "Tabla de Valoración"
+        ],
+        [
+          "09.6 Implementación de Acciones de Inclusión y Accesibilidad en la Administración Pública",
+          "PUNTOS\n100",
+          "PESO\n6.57",
+          "RESULTADO\n6.57",
+          "Tabla de Valoración"
+        ]
+      ]
+    },
+    "embeddedJson": [],
+    "forms": {
+      "count": 0,
+      "methods": []
+    },
+    "paginationHints": [],
+    "iframes": [],
+    "links": 126
+  },
+  "stats": {
+    "total": 40,
+    "noise": 4,
+    "json": 0,
+    "graphql": 0,
+    "html": 1,
+    "xhrFetch": 0,
+    "websockets": 0
+  },
+  "candidates": [],
+  "exports": [
+    {
+      "text": "Descargar Datos",
+      "url": "https://www.sismap.gob.do/GestionPublica/CargaEvidencia/ExportarDatos/177",
+      "path": "/GestionPublica/CargaEvidencia/ExportarDatos/177",
+      "status": 200,
+      "contentType": "application/vnd.ms-excel",
+      "disposition": "attachment; filename=DatosOrganismo.xls",
+      "sizeBytes": 3899,
+      "kind": "HTML_TABLE",
+      "columns": [
+        "OrganismoID",
+        "CODIGO",
+        "INDICADOR",
+        "VALOR_ACTUAL",
+        "PESO",
+        "CALCULO"
+      ],
+      "rowCount": 23,
+      "sampleFile": "docs/recon/01-sismap/samples/export-01-descargar-datos.html"
+    }
+  ],
+  "errors": [],
+  "artifactsDir": "docs/recon/01-sismap",
+  "recommendation": {
+    "primary": "CUSTOM",
+    "fallback": "DOM (tablas HTML presentes)",
+    "stability": "MEDIA",
+    "extractionCase": "D (exportacion tabular + DOM complementario)",
+    "rationale": [
+      "Exportacion tabular estable: \"Descargar Datos\" -> /GestionPublica/CargaEvidencia/ExportarDatos/177 (HTML_TABLE, 6 columnas: OrganismoID, CODIGO, INDICADOR, VALOR_ACTUAL, PESO, CALCULO; 23 filas).",
+      "Sin JSON/API, pero la exportacion ofrece columnas semanticas; usarla como fuente principal y el DOM para los datos que no incluya."
+    ]
+  }
+}

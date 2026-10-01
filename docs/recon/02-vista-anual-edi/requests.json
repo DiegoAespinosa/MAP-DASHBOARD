@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "phase": "load",
+    "tSec": 30.148,
+    "method": "GET",
+    "url": "https://www.sismap.gob.do/GestionPublica/Ranking/InformeAnualEdiView",
+    "path": "/GestionPublica/Ranking/InformeAnualEdiView",
+    "sameOrigin": true,
+    "resourceType": "document",
+    "status": 200,
+    "contentType": "text/html",
+    "kind": "HTML",
+    "sizeBytes": 29706,
+    "requestHeaders": {
+      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+      "cookie": "REDACTED (3 cookies: ASP.NET_SessionId, __RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0, .ASPXAUTH)"
+    },
+    "responseHeaders": {
+      "cache-control": "private",
+      "content-encoding": "gzip",
+      "content-type": "text/html; charset=utf-8",
+      "server": "Microsoft-IIS/10.0",
+      "vary": "Accept-Encoding",
+      "x-aspnet-version": "4.0.30319",
+      "x-aspnetmvc-version": "5.2",
+      "x-powered-by": "ASP.NET"
+    },
+    "hints": [],
+    "utility": "N/A",
+    "noise": false,
+    "isNavigation": true
+  },
+  {
+    "id": 2,
+    "phase": "load",
+    "tSec": 30.475,
+    "method": "GET",
+    "url": "https://www.sismap.gob.do/GestionPublica/lib/plugins/fontawesome-free/webfonts/fa-regular-400.woff2",
+    "path": "/GestionPublica/lib/plugins/fontawesome-free/webfonts/fa-regular-400.woff2",
+    "sameOrigin": true,
+    "resourceType": "font",
+    "status": 200,
+    "contentType": "application/font-woff2",
+    "kind": "OTHER",
+    "sizeBytes": 13584,
+    "requestHeaders": {
+      "accept": "*/*",
+      "cookie": "REDACTED (3 cookies: ASP.NET_SessionId, __RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0, .ASPXAUTH)",
+      "origin": "https://www.sismap.gob.do",
+      "referer": "https://www.sismap.gob.do/GestionPublica/lib/plugins/fontawesome-free/css/all.min.css"
+    },
+    "responseHeaders": {
+      "content-type": "application/font-woff2",
+      "server": "Microsoft-IIS/10.0",
+      "x-powered-by": "ASP.NET"
+    },
+    "hints": [],
+    "utility": "N/A",
+    "noise": false,
+    "isNavigation": false
+  },
+  {
+    "id": 3,
+    "phase": "load",
+    "tSec": 30.491,
+    "method": "GET",
+    "url": "https://www.sismap.gob.do/GestionPublica/lib/plugins/fontawesome-free/webfonts/fa-solid-900.woff2",
+    "path": "/GestionPublica/lib/plugins/fontawesome-free/webfonts/fa-solid-900.woff2",
+    "sameOrigin": true,
+    "resourceType": "font",
+    "status": 200,
+    "contentType": "application/font-woff2",
+    "kind": "OTHER",
+    "sizeBytes": 79444,
+    "requestHeaders": {
+      "accept": "*/*",
+      "cookie": "REDACTED (3 cookies: ASP.NET_SessionId, __RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0, .ASPXAUTH)",
+      "origin": "https://www.sismap.gob.do",
+      "referer": "https://www.sismap.gob.do/GestionPublica/lib/plugins/fontawesome-free/css/all.min.css"
+    },
+    "responseHeaders": {
+      "content-type": "application/font-woff2",
+      "server": "Microsoft-IIS/10.0",
+      "x-powered-by": "ASP.NET"
+    },
+    "hints": [],
+    "utility": "N/A",
+    "noise": false,
+    "isNavigation": false
+  }
+]

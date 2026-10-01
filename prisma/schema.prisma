@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum SourceKind {
+  CARGA_EVIDENCIA
+  RANKING
+}
+
+enum RefreshStatus {
+  RUNNING
+  OK
+  PARTIAL
+  FAILED
+}
+
+/// Fuente de SISMAP. Las URL viven aqui, nunca en codigo.
+model Source {
+  id         String     @id @default(cuid())
+  name       String
+  url        String
+  exportUrl  String
+  kind       SourceKind
+  enabled    Boolean    @default(true)
+  sortOrder  Int        @default(0)
+  lastRefreshAt    DateTime?
+  lastStatus       String?
+  lastError        String?
+  lastOverallScore Float?
+  lastRecordCount  Int?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  indicators Indicator[]
+}
+
+/// Datos tal como vienen de SISMAP (nunca editados a mano).
+model Indicator {
+  id              String     @id @default(cuid())
+  sourceId        String
+  source          Source     @relation(fields: [sourceId], references: [id])
+  code            String
+  name            String
+  section         String?
+  score           Float?
+  weight          Float?
+  weightedResult  Float?
+  color           String?
+  status          String?
+  deadline        DateTime?  @db.Date
+  deadlineOverdue Boolean    @default(false)
+  firstSeenAt     DateTime   @default(now())
+  lastSeenAt      DateTime   @default(now())
+  missingSince    DateTime?
+  updatedAt       DateTime   @updatedAt
+  evidences       Evidence[]
+  internal        InternalNote?
+
+  @@unique([sourceId, code])
+  @@index([deadline])
+}
+
+model Evidence {
+  id           String    @id @default(cuid())
+  indicatorId  String
+  indicator    Indicator @relation(fields: [indicatorId], references: [id], onDelete: Cascade)
+  code         String
+  name         String
+  dueDate      DateTime? @db.Date
+  verifiedBy   String?
+  value        Float?
+  status       String?
+  externalRef  String?
+  lastSeenAt   DateTime  @default(now())
+  missingSince DateTime?
+  updatedAt    DateTime  @updatedAt
+
+  @@unique([indicatorId, code])
+}
+
+/// Informacion interna editable en la pagina. La actualizacion desde SISMAP nunca la toca.
+model InternalNote {
+  indicatorId String    @id
+  indicator   Indicator @relation(fields: [indicatorId], references: [id], onDelete: Cascade)
+  responsible String?
+  notes       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+/// Historial de actualizaciones. `snapshot` guarda la copia completa de los indicadores de ese momento.
+model Refresh {
+  id         String        @id @default(cuid())
+  status     RefreshStatus @default(RUNNING)
+  startedAt  DateTime      @default(now())
+  finishedAt DateTime?
+  heartbeat  DateTime      @default(now())
+  progress   Json?
+  summary    Json?
+  snapshot   Json?
+  error      String?
+
+  @@index([startedAt])
+}

@@ -1,0 +1,988 @@
+<!DOCTYPE html><html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase no-indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths js no-flexbox flexbox-legacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths" style="height: auto;"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="https://map.gob.do/wp-content/uploads/2020/08/icon-presidencia.png">
+    <title>Sismap Funcion Publica - Ranking Edi</title>
+
+    
+    <link href="/GestionPublica/lib/plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    
+    <link href="/GestionPublica/css/adminlte.min.css" rel="stylesheet">
+    <link href="/GestionPublica/css/AdminLTE.css" rel="stylesheet">
+
+    <script src="/GestionPublica/Scripts/jquery-3.1.1.min.js"></script>
+
+    <script src="/GestionPublica/js/bootstrap.min.js"></script>
+    
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    
+    <link href="/GestionPublica/lib/izitoast/css/iziToast.min.css" rel="stylesheet">
+
+    <link href="/GestionPublica/css/NuevoEstilo.css" rel="stylesheet">
+
+
+
+   
+
+    <style>
+        .main-footer p {
+            margin: 0px;
+        }
+
+        .pagination > li > a, .pagination > li > span {
+            border-radius: 50% !important;
+            margin: 0 5px;
+        }
+
+        .main-sidebar {
+            /*background-color: #fff;*/
+            background-color: white;
+        }
+
+        @media (max-width: 990px) {
+            .main-sidebar {
+                margin-left: -250px !important;
+            }
+        }
+
+        body {
+            padding-right: 0px !important
+        }
+
+        .modal-open {
+            overflow-y: auto;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+            .pagination li {
+                color: white;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+                border: 2px solid #003876;
+                border-radius: 20px;
+                margin: 0 4px;
+            }
+
+                .pagination li.active {
+                    background-color: #003876;
+                    color: white;
+                    border-radius: 20px;
+                }
+
+                .pagination li:hover:not(.active) {
+                    background-color: white;
+                    color: black;
+                    border: 2px solid #003876;
+                    border-radius: 20px;
+                }
+    </style>
+
+    <script type="text/javascript">
+        setInterval(function () {
+            var vis = $("#blinkMe").css("visibility");
+            vis = (!vis || vis == "visible") ? "hidden" : "visible";
+            $("#blinkMe").css("visibility", vis);
+        }, 1000);
+    </script>
+
+
+
+    
+
+</head>
+<body style="zoom: 1; height: auto;">
+    <!-- Page Wrapper-->
+    <section id="main-wrapper" class="theme-blue-full">
+
+
+
+        <!-- Top Header -->
+        
+
+
+
+
+
+
+<!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #003670;">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            
+            <a class="nav-link" style="font-size: 24px; color: white" data-widget="pushmenu" href="#" role="button">
+                <i class="fas fa-bars"></i>
+            </a>
+        </li>
+        
+        
+        
+    </ul>
+
+    <!-- SEARCH FORM -->
+    
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+        <!-- Messages Dropdown Menu -->
+        <!-- Notifications Dropdown Menu -->
+        
+
+    </ul>
+
+
+
+</nav>
+<style>
+    .icono-campana {
+        font-size: x-large;
+    }
+</style>
+
+<!-- /.navbar -->
+
+
+
+        <!-- Left Sidebar Navigation -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+<aside class="main-sidebar sidebar-primary " style="position: auto;">
+
+    <!-- Brand Logo -->
+    <a asp-page="/Index" class="brand-link text-center">
+        
+                <img src="/GestionPublica/img/logo4.png" width="180px">
+
+        
+
+    </a>
+    <br>
+
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <nav class="mt-2">
+
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+
+                    
+
+
+                        <li class="nav-item">
+                            <a href="/GestionPublica/" class="nav-link" title="Ranking">
+                                <i class="nav-icon fas fa-signal"></i>
+
+                                <p> Ranking </p>
+
+                            </a>
+                        </li>
+                    
+
+                        <li class="nav-item">
+                            <a href="/GestionPublica/Ranking/EdiIndex" class="nav-link" title="Ranking Edi">
+                                <i class="nav-icon fas fa-sliders-h"></i>
+
+
+                                <p>Ranking EDI</p>
+
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/GestionPublica/Noticias/Details" class="nav-link" title="Noticias">
+                                <i class="nav-icon far fa-newspaper"></i>
+                                <p> Noticias </p>&nbsp; &nbsp;                                    <i class="fas fa-comment-medical" style="font-size:15px;color:red"></i>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/GestionPublica/Informes/details" class="nav-link" title="Informes">
+                                <i class="nav-icon far fa-file-alt"></i>
+                                <p> Informes </p>
+                                &nbsp; &nbsp;                            </a>
+                        </li>
+
+
+
+                    <li class="nav-item">
+                            <a href="/GestionPublica/Organismos" class="nav-link" title="Organismos">
+                                <i class="nav-icon fas fa-university"></i>
+
+                                <p> Organismos </p>
+                            </a>
+                    </li>
+
+
+
+
+
+
+                    <li class="nav-item">
+                        <a href="/GestionPublica/Home/Contact" class="nav-link" title="Contactos">
+                            <i class="nav-icon far fa-comments"></i>
+                            <p> Contactos </p>
+                        </a>
+                    </li>
+
+
+                        <li class="nav-item">
+                            <a href="/GestionPublica/Guia/Details" class="nav-link" title="Material de Apoyo">
+                                <i class="nav-icon far fa-file-image"></i>
+                                <p> Material de Apoyo </p>
+                            </a>
+                        </li>
+
+
+                    <li class="nav-item">
+                        <a href="/GestionPublica/Admin" class="nav-link" title="Administración">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p> Administración </p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+    </div>
+    <!-- /.sidebar -->
+
+
+</aside>
+
+
+
+
+
+        <style>
+            .sidebar .nav-sidebar .nav-link.active {
+                background-color: white !important;
+                color: blue !important;
+            }
+
+            .sidebar .nav-sidebar .nav-item .nav-link.btn-link {
+                color: #c2c7d0 !important;
+            }
+
+            .sidebar .nav-sidebar .nav-item .nav-link.btn-link {
+                color: white !important;
+            }
+
+            .user-panel .nav-item .nav-link:hover {
+                background-color: #003876 !important;
+                color: white;
+            }
+        </style>
+
+
+
+
+        <!-- Content wraper -->
+        <section class="content-wrapper" style="min-height: 608px;">
+
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1></h1>
+                        </div>
+                        <div class="col-sm-6">
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- Main view  -->
+            <section class="content">
+
+
+                        <link href="/GestionPublica/Content/BotonGP.css" rel="stylesheet">
+
+
+
+
+                
+
+
+
+<link href="/GestionPublica/css/circle.css" rel="stylesheet">
+<script src="/GestionPublica/progressBar.js"></script>
+
+<style>
+
+
+
+
+
+    .contenedor {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .texto-encima {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    .centrado {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+    }
+
+    .espacio {
+        /* width: 30cm; */
+        width: 55%;
+        margin-top: 27px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #fff;
+        padding: 2cm;
+        /* box-shadow: 0 0 10px rgb(0 0 0 / 50%); */
+        margin-bottom: 27px;
+        display: inherit;
+        min-width: 40%;
+    }
+
+    .ranking-table thead {
+        font-size: 6px;
+    }
+
+    .ranking-table tbody {
+        font-size: 6px;
+    }
+
+    .ranking-table .row-icon-indicator {
+        max-width: 12px;
+    }
+
+
+    @media (min-width: 576px) {
+        .ranking-table thead {
+            font-size: 12px;
+        }
+
+        .ranking-table tbody {
+            font-size: 12px;
+        }
+
+        .ranking-table .row-icon-indicator {
+            max-width: 25px;
+        }
+    }
+
+
+    @media (min-width: 768px) {
+        .ranking-table thead {
+            font-size: 14px;
+        }
+
+        .ranking-table tbody {
+            font-size: 14px;
+        }
+
+        .ranking-table .row-icon-indicator {
+            max-width: 30px;
+        }
+    }
+
+
+    @media (min-width: 992px) {
+        .ranking-table thead {
+            font-size: 14px;
+        }
+
+        .ranking-table tbody {
+            font-size: 14px;
+        }
+
+        .ranking-table .row-icon-indicator {
+            max-width: 35px;
+        }
+    }
+
+
+    @media (min-width: 1200px) {
+        .ranking-table thead {
+            font-size: 16px;
+        }
+
+        .ranking-table tbody {
+            font-size: 16px;
+        }
+
+        .ranking-table .row-icon-indicator {
+            max-width: 45px;
+        }
+    }
+
+    .pageheader {
+        padding: 15px;
+        border-bottom: 1px solid #dce0e6;
+        border-top: 1px solid #eee;
+        background: #f6f8f8;
+        position: relative;
+    }
+</style>
+
+
+<!-- styles for this little demo page -->
+<style type="text/css">
+
+    body {
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .page {
+        margin: 40px;
+    }
+
+    h1 {
+        margin: 40px 0 60px 0;
+    }
+
+    .dark-area {
+        background-color: #666;
+        padding: 40px;
+        margin: 0 -40px 20px -40px;
+        clear: both;
+    }
+
+    .clearfix:before, .clearfix:after {
+        content: " ";
+        display: table;
+    }
+
+    .clearfix:after {
+        clear: both;
+    }
+
+    .clearfix {
+        *zoom: 1;
+    }
+</style>
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".toggle-accordion").on("click", function () {
+            var accordionId = $(this).attr("accordion-id"),
+                numPanelOpen = $(accordionId + ' .collapse.in').length;
+
+            $(this).toggleClass("active");
+
+            if (numPanelOpen == 0) {
+                openAllPanels(accordionId);
+            } else {
+                closeAllPanels(accordionId);
+            }
+        })
+
+        openAllPanels = function (aId) {
+            console.log("setAllPanelOpen");
+            $(aId + ' .panel-collapse:not(".in")').collapse('show');
+        }
+        closeAllPanels = function (aId) {
+            console.log("setAllPanelclose");
+            $(aId + ' .panel-collapse.in').collapse('hide');
+        }
+
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(document.body).on('hidden.bs.modal', function () {
+        $('#myModal').removeData('bs.modal')
+    });
+</script>
+
+
+
+
+<!-- Modal -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<style>
+
+
+    .oc-25 {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='100px' width='100px'><text transform='translate(20, 100) rotate(-45)' fill='rgb(205,205,205)' font-size='15'></text></svg>");
+        -webkit-print-color-adjust: exact;
+
+    }
+</style>
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        
+
+
+<div class="col-sm-11 col-sm-offset-1 col-md-11 col-md-offset-1 main">
+    <h1 style="color: #003876"><span class="glyphicon glyphicon-search"></span>&nbsp;<b>Fuente de Datos EDI</b></h1>
+    <hr>
+
+    <div class="card">
+        <div class="card-body">
+
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+
+                    <b><i style="color: #003876">*SISTEMA DE MONITOREO DE LA GESTIÓN PÚBLICA (SISMAP)*</i></b><br>
+                    <br>
+                    <p><b>INDICADORES</b></p>
+                    <ul style="list-style-type: circle;">
+                        <li>SISMAP GP</li>
+                        <li>Satisfacción Ciudadana</li>
+                        <li>Políticas Transversales</li>
+                    </ul>
+                    <p>Ministerio de Administración Pública (MAP)</p>
+                    <p>Av. 27 de Febrero No. 419, sector El Millón II. Santo Domingo, R.D.</p>
+                    <p>809-682-3298</p>
+                    <a href="http://www.map.gob.do" target="_blank">https://map.gob.do/</a>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+
+
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+                    <b><i style="color: #003876">*SISTEMA DE MEDICIÓN Y MONITOREO DE LA GESTIÓN PÚBLICA (SMMGP)*</i></b><br>
+                    <br>
+                    <p><b>INDICADORES</b></p>
+                    <ul style="list-style-type: circle;">
+                        <li>IGP</li>
+                        <li>SISCOMPRAS</li>
+                        <li>ITICGE</li>
+                        <li>NOBACI</li>
+                        <li>SAIP</li>
+                        <li>TRANSPARENCIA ESTANDARIZADO</li>
+                    </ul>
+                    <p>Ministerio de la Presidencia (MINPRE)</p>
+                    <p>AV. MÉXICO ESQ. CALLE DR. DELGADO, PALACIO NACIONAL, RD</p>
+                    <p>809-695-8000 EXT. 2013</p>
+                    <a href="https://minpre.gob.do" target="_blank">https://minpre.gob.do</a>
+                    <br>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+
+            <div class="panel panel-primary">
+
+                <div class="panel-body">
+
+                    <b><i style="color: #003876">*Sistema Nacional de Monitoreo y Evaluación (SNMyE)*</i></b>
+                    <br>
+                    <p><b>INDICADORES</b></p>                                    
+                    <ul style="list-style-type: circle;">
+                        <li>Índice de Cumplimiento</li>
+                        <li>Índice de Progreso</li>
+                    </ul>
+                        <p>Ministerio de Economía, Planificación y Desarrollo (MEPyD)</p>
+                        <p>Av. México, esq. Dr. Delgado, Distrito Nacional, Santo Domingo</p>
+                        <p>809 688 7000</p>
+                        <a href="https://mepyd.gob.do/" target="_blank">https://mepyd.gob.do/</a>
+                        <br>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn button1" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="col-sm-12 col-sm-offset-1 col-md-12 col-md-offset-1 main">
+
+    <div class="card">
+
+        <div class="card-body p-0">
+            <center><h1 style="color:#002F6C">INFORME ANUAL INDICADORES DE PROCESOS Y RESULTADOS </h1></center>
+        </div>
+    </div>
+
+<form action="/GestionPublica/Ranking/InformeAnualEdiView" class="form-horizontal" method="get" role="form">            <div class="card-deck">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <div class="form-group">
+
+
+                                    <div class="btn-group">
+                                        &nbsp;<a class="btn button1 " href="/GestionPublica/Ranking/ExportarEdi">Descargar Datos</a>
+
+                                    </div>
+                                    <div class="btn-group">
+                                        &nbsp;<button type="button" class="btn button1" data-toggle="modal" data-target="#myModal">Fuente de Datos</button>
+
+                                    </div>
+                                    <div class="btn-group">
+                                        &nbsp;<a class="btn button1" href="/GestionPublica/Ranking/EdiIndex">Retornar</a>
+
+                                    </div>
+                                        <div class="btn-group">
+                                            &nbsp;<a href="/GestionPublica/uploads/evidencias/638834155098347339-INAPA.xlsx " target="_blank" class="btn button1 ">Descargar Metas Mepyd</a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row justify-content-sm-start ">
+
+                                <div class="d-none d-xl-block d-lg-none" style="height: 30px; width: 30px; background-color: blue; margin-left: 40px; margin-right: 20px; border-radius: 4px;">
+                                </div>
+                                <div class="d-none d-xl-block d-lg-none">Procesos</div>
+                            </div>
+                            <div style="height: 10px;">
+
+                            </div>
+
+                            <div class="row justify-content-start ">
+                                <div class="d-none d-xl-block d-lg-none" style="height: 30px; width: 30px;  background-color: red;margin-left: 40px;margin-right: 20px;border-radius: 4px;">
+                                </div>
+                                <div class="d-none d-xl-block d-lg-none">Resultados</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</form>
+    <br>
+
+
+
+
+
+    <div class="row">
+
+
+
+
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <table class="table table-responsive table-hover table-fixed oc-25">
+                        <thead style="position: sticky; top: 0;">
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="6" style="background-color:blue"></td>
+                                <td colspan="5" style="background-color:red"></td>
+
+                            </tr>
+                            <tr style="color:#002F6C">
+                                <th style="width: 5%">Posición</th>
+                                <th style="width: 20%">Nombre Organismo</th>
+                                <th style="background-color:forestgreen;width: 12.5%">IDI</th>
+                                <th style="width: 25%">SISMAP GP</th>
+                                <th style="width: 25%">IGP</th>
+                                <th style="width: 25%">SISCOMPRAS</th>
+                                <th style="width: 25%">ITICGE</th>
+                                <th style="width: 25%">NOBACI</th>
+                                <th style="width: 25%">SAIP</th>
+                                
+                                <th style="width: 25%">Políticas Transversales</th>
+                                
+                                <th style="width: 25%">Índice de Cumplimiento</th>
+                                <th style="width: 25%">Índice de Progreso</th>
+                                
+                                
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                                    <tr style="border-bottom: 2px solid #ccc;">
+                                        <td><b><span>1</span></b></td>
+                                        <td style="color:black;">
+
+                                            <a href="/GestionPublica/Ranking/EdiDetails?searchString=Instituto%20Nacional%20de%20Aguas%20Potables%20y%20Alcantarillados&amp;catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados">Instituto Nacional de Aguas Potables y Alcantarillados</a>
+
+                                        </td>
+                                        <td>
+                                            <div class="progress">79.94</div>
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        <td>
+                                                <div class="progress">83.49</div>
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        <td>
+                                                <div class="progress">N/A</div>
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        <td>
+                                                <div class="progress">86.99</div>
+
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+
+                                        <td>
+                                                <div class="progress">70.19</div>
+
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        <td>
+                                                <div class="progress">97.16</div>
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        <td>
+                                                <div class="progress">99.93</div>
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        
+
+                                        <td>
+                                            
+                                            <a href="/GestionPublica/CargaEvidencia/PoliticasTransversales/177?catchall=Instituto-Nacional-de-Aguas-Potables-y-Alcantarillados">
+
+                                                    <div class="progress">75.12</div>
+
+                                                <canvas id="progressBar" width="60" height="60"></canvas>
+
+                                            </a>
+                                        </td>
+
+                                        <td>
+                                                <div class="progress">92.63</div>
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        <td>
+                                                <div class="progress">60.00</div>
+
+                                            <canvas id="progressBar" width="60" height="60"></canvas>
+                                        </td>
+                                        
+
+
+                                    </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+<div class="card">
+
+    <div class="card-body p-0">
+
+
+
+        <div class="panel-body">
+            <br>
+            <br>
+            <div class="row">
+
+
+                <div class="col-xs-4 col-md-4">
+                    <center>
+                        <a href="http://www.map.gob.do/" class="thumbnail" target="_blank">
+                            <img src="/GestionPublica/img/Logo-Adm-Publica.png" width="350" height="200" data-src="holder.js/100%x180" alt="Ministerio de Administración Pública" title="Ministerio de Administración Pública">
+                        </a>
+                    </center>
+                </div>
+                <div class="col-xs-4 col-md-4">
+                    <center>
+                        <a href="https://mepyd.gob.do/" class="thumbnail" target="_blank">
+                            <img src="/GestionPublica/img/Logo-Mepyd.png" width="350" height="200" data-src="holder.js/100%x180" alt="Ministerio de Econom&amp;iacutea, Planificaci&amp;oacuten y Desarrollo" title="Ministerio de Economía, Planificaci&amp;oacuten y Desarrollo">
+                        </a>
+                    </center>
+                </div>
+
+
+                <div class="col-xs-4 col-md-4">
+                    <center>
+                        <a href="http://www.digepres.gob.do" class="thumbnail" target="_blank">
+                            <img src="/GestionPublica/img/logro-presidencia.png" width="350" height="200" data-src="holder.js/100%x180" alt="Ministerio de la Presidencia" title="Ministerio de la Presidencia">
+                        </a>
+                    </center>
+                </div>
+
+            </div>
+            <br>
+            <br>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+    <br>
+
+</div>
+            </section>
+            <!-- /Content wraper-->
+        </section>
+    </section><!-- /Page Wrapper-->
+    <!-- Right Sidebar -->
+    
+
+    <!--Theme Config -->
+    
+
+
+  
+    <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+    
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <center>
+                <strong>SISMAP v3.0 Copyright © 2021 - 2026 <a href="https://map.gob.do/">Ministerio de Administración Pública</a>.</strong> Todos los derechos reservados.
+                <br>
+    
+    </center>
+    </div>
+    <div class="col-xl-6 text-xl-right">
+            <partial name="_MensajeContacto">
+        </partial></div>
+    </div>
+
+    </footer>
+
+    <link href="/GestionPublica/stylesheets/jquery-ui.min.css" rel="stylesheet">
+    <link href="/GestionPublica/stylesheets/jquery-ui.theme.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    
+    <!-- Bootstrap 4 -->
+    <script src="/GestionPublica/lib/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/GestionPublica/js/adminlte.min.js"></script>
+
+    <script src="/GestionPublica/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/GestionPublica/lib/izitoast/js/iziToast.min.js"></script>
+
+    <script src="/GestionPublica/Scripts/jquery-ui.js"></script>
+
+    
+
+    
+    <script src="/GestionPublica/bundles/jquery?v=QBxwFaenQ3ShYfZnW-AUEA61zqCAnDMcgbazfEJRvLg1"></script>
+<script src="/GestionPublica/bundles/modernizr?v=AkemwdNWYyKciMQ54W-S3IrQXsrBSuM7O5RtS8ljFuk1"></script>­<style>@font-face {font-family:"font";src:url("https://")}@media (touch-enabled),(-webkit-touch-enabled),(-moz-touch-enabled),(-o-touch-enabled),(-ms-touch-enabled),(modernizr){#touch{top:9px;position:absolute}}@media (transform-3d),(-webkit-transform-3d),(-moz-transform-3d),(-o-transform-3d),(-ms-transform-3d),(modernizr){#csstransforms3d{left:9px;position:absolute;height:3px;}}#generatedcontent:after{content:":)";visibility:hidden}</style>
+<script src="/GestionPublica/bundles/bootstrap?v=CEXut8fjkx-j7rXSaM7JvOmtbs2lsr91srepq6ER9UQ1"></script>
+<script src="/GestionPublica/bundles/moment?v=btFFQ0U9wQxMaEK0yaqy5o4N_F1ZTSvvsGInFLm_zGk1"></script>
+<script src="/GestionPublica/bundles/datepicker?v=mIzKv0bNnVKaah1tQKp5Um4hRV07mCko7vgZrRVVjnQ1"></script>
+<script src="/GestionPublica/bundles/timepicker?v="></script>
+<script src="/GestionPublica/bundles/alert?v="></script>
+<script src="/GestionPublica/bundles/jqueryval?v=lkXtPQ_FgUZyXRuqz01GCmiDJ4Yd4gSgiKcFCdthE8g1"></script>
+
+
+    
+
+
+
+
+</body></html>

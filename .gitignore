@@ -1,0 +1,27 @@
+# Dependencias
+node_modules/
+# Entorno y secretos (nunca al repositorio)
+.env
+.env.*
+!.env.example
+# Estado de sesión de Playwright (cookies) y salidas locales
+.secrets/
+*.storage-state.json
+# Salida cruda del reconocimiento (puede contener datos institucionales)
+docs/recon/*/raw/
+# Build
+dist/
+.next/
+coverage/
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Next.js / Prisma
+.next/
+next-env.d.ts
+src/generated/
+*.tsbuildinfo
+# Datos de la app (sesión SISMAP, capturas)
+data/

@@ -1,0 +1,122 @@
+{
+  "source": {
+    "index": 2,
+    "name": "Vista anual EDI",
+    "slug": "02-vista-anual-edi",
+    "url": "https://www.sismap.gob.do/GestionPublica/Ranking/InformeAnualEdiView"
+  },
+  "redactedUrl": "https://www.sismap.gob.do/GestionPublica/Ranking/InformeAnualEdiView",
+  "startedAt": "2026-09-30T23:55:43.353Z",
+  "durationMs": 37019,
+  "preflight": {
+    "status": 200,
+    "contentType": "text/html"
+  },
+  "accessibility": "ACCESIBLE",
+  "auth": {
+    "outcome": "SESSION_REUSED",
+    "summary": "SESSION COOKIE (storageState reutilizado)",
+    "details": [],
+    "sessionCookieNames": [
+      "ASP.NET_SessionId",
+      "__RequestVerificationToken_L0dlc3Rpb25QdWJsaWNh0",
+      ".ASPXAUTH"
+    ],
+    "bearerObserved": false
+  },
+  "page": {
+    "finalUrl": "https://www.sismap.gob.do/GestionPublica/Ranking/InformeAnualEdiView",
+    "title": "Sismap Funcion Publica - Ranking Edi",
+    "rendering": "ESTATICO",
+    "frameworkHints": [
+      "WordPress",
+      "jQuery"
+    ],
+    "initialHtmlBytes": 29706,
+    "initialTextChars": 1555,
+    "domTextChars": 610,
+    "tables": {
+      "count": 1,
+      "rows": [
+        3
+      ],
+      "headers": [
+        [
+          "Posición",
+          "Nombre Organismo",
+          "IDI",
+          "SISMAP GP",
+          "IGP",
+          "SISCOMPRAS",
+          "ITICGE",
+          "NOBACI",
+          "SAIP",
+          "Políticas Transversales",
+          "Índice de Cumplimiento",
+          "Índice de Progreso"
+        ]
+      ]
+    },
+    "embeddedJson": [],
+    "forms": {
+      "count": 1,
+      "methods": [
+        "GET"
+      ]
+    },
+    "paginationHints": [],
+    "iframes": [],
+    "links": 21
+  },
+  "stats": {
+    "total": 37,
+    "noise": 3,
+    "json": 0,
+    "graphql": 0,
+    "html": 1,
+    "xhrFetch": 0,
+    "websockets": 0
+  },
+  "candidates": [],
+  "exports": [
+    {
+      "text": "Descargar Datos",
+      "url": "https://www.sismap.gob.do/GestionPublica/Ranking/ExportarEdi",
+      "path": "/GestionPublica/Ranking/ExportarEdi",
+      "status": 200,
+      "contentType": "application/vnd.ms-excel",
+      "disposition": "attachment; filename=DatosTemporalesSismapEdi.xls",
+      "sizeBytes": 828,
+      "kind": "HTML_TABLE",
+      "columns": [
+        "ID",
+        "nombreOrganismo",
+        "EDI",
+        "IGP",
+        "SISCOMPRAS",
+        "SismapGp",
+        "ITICGE",
+        "NOBACI",
+        "PoliticasTransversales",
+        "IndicedeCumplimiento",
+        "IndicedeProgreso",
+        "SatisfaccionCiudadana",
+        "SAIP"
+      ],
+      "rowCount": 1,
+      "sampleFile": "docs/recon/02-vista-anual-edi/samples/export-01-descargar-datos.html"
+    }
+  ],
+  "errors": [],
+  "artifactsDir": "docs/recon/02-vista-anual-edi",
+  "recommendation": {
+    "primary": "CUSTOM",
+    "fallback": "DOM (tablas HTML presentes)",
+    "stability": "MEDIA",
+    "extractionCase": "D (exportacion tabular + DOM complementario)",
+    "rationale": [
+      "Exportacion tabular estable: \"Descargar Datos\" -> /GestionPublica/Ranking/ExportarEdi (HTML_TABLE, 13 columnas: ID, nombreOrganismo, EDI, IGP, SISCOMPRAS, SismapGp, ITICGE, NOBACI; 1 filas).",
+      "Sin JSON/API, pero la exportacion ofrece columnas semanticas; usarla como fuente principal y el DOM para los datos que no incluya."
+    ]
+  }
+}
